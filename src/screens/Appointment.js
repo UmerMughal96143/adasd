@@ -8,11 +8,9 @@ import { errorNotification } from "../utils/notification";
 const Appointment = ({history}) => {
   const [addressResult, setAddressResult] = useState("");
   const [dropDownAddress, setDropdownAddress] = useState("");
-  console.log("🚀 ~ file: Appointment.js ~ line 11 ~ Appointment ~ dropDownAddress", dropDownAddress)
   const [isAddressSuccess, setAddressSuccess] = useState(false);
 
   const [numberOfPeoples, setNumberOfPeoples] = useState('');
-  console.log("🚀 ~ file: Appointment.js ~ line 15 ~ Appointment ~ numberOfPeoples", numberOfPeoples)
 
   const [finalAddressArrayyy, setFinalAddressArray] = useState([]);
 

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { errorNotification } from "../utils/notification";
 
 const PeopleBooking = () => {
   const [formData, setFormData] = useState({
@@ -14,7 +16,7 @@ const PeopleBooking = () => {
     passportIdCard: "",
     confIrmpassportIdCard: "",
   });
-  
+
   const {
     firstName,
     lastName,
@@ -27,14 +29,67 @@ const PeopleBooking = () => {
     passportIdCard,
     confIrmpassportIdCard,
   } = formData;
+  console.log(
+    "🚀 ~ file: PeopleBooking.js ~ line 31 ~ PeopleBooking ~ formData",
+    formData
+  );
 
   const [sex, setSex] = useState("");
   const onChangeFormHandler = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  
+
+  const { data } = useSelector((state) => state.Form);
 
   let sexArray = ["Male", "Female"];
+
+  const submitCheckout = (e) => {
+    e.preventDefault();
+    if (
+      firstName &&
+      lastName &&
+      dob &&
+      sex &&
+      email &&
+      confirmEmail &&
+      mobile &&
+      confirmMobile &&
+      passportIdCard &&
+      confIrmpassportIdCard && sex
+    ) {
+      alert('Heavy')
+    } else {
+      if (!firstName || !lastName || !dob  || !sex) {
+        errorNotification("Fill Required Fields");
+        return;
+      }
+      if (!email) {
+        errorNotification("Enter Email");
+        return;
+      }
+      if (email !== confirmEmail) {
+        errorNotification("Email does not match");
+        return;
+      }
+      if (!mobile) {
+        errorNotification("Enter Mobile Number");
+        return;
+      }
+      if (mobile !== confirmMobile) {
+        errorNotification("Mobile does not match");
+        return;
+      }
+      if (!passportIdCard) {
+        errorNotification("Enter Id Number");
+        return;
+      }
+      if (passportIdCard !== confIrmpassportIdCard) {
+        errorNotification("Id number does not match");
+        return;
+      }
+      
+    }
+  };
 
   return (
     <div class="container-fluid mb-4">
@@ -44,7 +99,9 @@ const PeopleBooking = () => {
           <p class="PRC-flite-dec">
             You are booking for 3 people 12th February 2021 between 8am - 4pm
           </p>
-          <button class="passenger-btn">Person 1 of 3</button>
+          <button class="passenger-btn">
+            Person 1 of {data[2]?.numberOfPeoples}
+          </button>
         </div>
         {/* <div class="people-booking-copy-dedail-person">
           <label>
@@ -175,17 +232,18 @@ const PeopleBooking = () => {
                 Back
               </button>
             </div>
-            <div class="col-6">
-              <button type="submit" class="Next-btn">
-                Next Person
-              </button>
-            </div>
-            <div class="col-12">
-              <Link to="/userdetail">
-                <button class="Submit-to-checkout">
-                  Submit and go to checkout
+            {data[2]?.numberOfPeoples !== 1 && (
+              <div class="col-6">
+                <button type="submit" class="Next-btn">
+                  Next Person
                 </button>
-              </Link>
+              </div>
+            )}
+
+            <div class="col-12" onClick={(e) => submitCheckout(e)}>
+              <button class="Submit-to-checkout">
+                Submit and go to checkout
+              </button>
             </div>
           </div>
         </form>

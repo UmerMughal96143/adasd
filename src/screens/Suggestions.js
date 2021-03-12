@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useDispatch } from "react-redux";
+import { suggestions } from "../actions/form";
+import { errorNotification } from "../utils/notification";
 
-const Suggestions = () => {
+
+const Suggestions = ({history}) => {
   const [formData, setFormData] = useState({
-    departureDate: "",
     flightTime: "",
   });
+  const {flightTime} = formData
   const [startDate, setStartDate] = useState(new Date());
-  console.log(
-    "🚀 ~ file: Suggestions.js ~ line 13 ~ Suggestions ~ startDate",
-    startDate
-  );
+  const dispatch = useDispatch()
 
   let flightTimes = [
     "1am - 3am",
@@ -29,10 +30,23 @@ const Suggestions = () => {
     "11pm - 1am",
   ];
 
-  const { departureDate, flightTime } = formData;
 
   const oncFormCHangeHandler = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const submitFormHandler = (e) => {
+    e.preventDefault();
+    if(flightTime && startDate){
+      let data = {
+        flightTime,
+        startDate
+      }
+      dispatch(suggestions(data))
+      history.push('/peoplebooking')
+    }else{
+      errorNotification('Please fill All fields')
+    }
   };
   return (
     <div class="site-container mb-4">
@@ -83,7 +97,7 @@ const Suggestions = () => {
               </h3>
               <div class="suggest-best-time">
                 <button class="suggest-best-time-btn">
-                  <span>2pm - 4pm</span> {" "} {startDate.toString()}
+                  <span>2pm - 4pm</span> {startDate.toString()}
                 </button>
               </div>
               <div class="user-choose">
@@ -126,7 +140,7 @@ const Suggestions = () => {
               </div>
               <div class="col-md-6 col-12 footer-btn pr-0">
                 <Link to="/peoplebooking">
-                  <button type="submit" class="Next-btn">
+                  <button type="submit" class="Next-btn" onClick={(e) => submitFormHandler(e)}>
                     Continue
                   </button>
                 </Link>

@@ -39,6 +39,11 @@ export const Form = (state = iniitialState, action) => {
       return{
         data : [...state.data , action.payload]
       }
+    
+    case 'SUGGESTIONS' : 
+    return{
+      data : [...state.data , action.payload]
+    }
     default:
       return {
         ...state,
