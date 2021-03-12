@@ -49,7 +49,7 @@ const Appointment = ({history}) => {
     }
     setAddressSuccess(true)
     let result = await axios.post(
-      `http://pcls1.craftyclicks.co.uk/json/rapidaddress?key=35000-bcc97-ce11b-02c57&postcode=${postcode}&response=data_formatted`
+      `https://pcls1.craftyclicks.co.uk/json/rapidaddress?key=35000-bcc97-ce11b-02c57&postcode=${postcode}&response=data_formatted`
     );
     setAddressResult(result.data);
     // setTownCity(result.data);
