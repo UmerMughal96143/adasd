@@ -1,6 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
+import { errorNotification } from "../utils/notification";
 
-const PaymentDetails = () => {
+const PaymentDetails = ({ history }) => {
+  const [formData, setFormData] = useState({
+    cardNumber: "",
+    expiryDate: "",
+    cardHolderName: "",
+    cvv: "",
+  });
+
+  const { cardNumber, expiryDate, cardHolderName, cvv } = formData;
+
+  const onFormChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const paymentHandler = (e) => {
+    e.preventDefault();
+    if (!cardNumber || !expiryDate || !cardHolderName || !cvv) {
+      errorNotification("Fill Required Fields");
+      return;
+    }
+    history.push("/bookingcomplete");
+  };
+
   return (
     <div>
       <section>
@@ -26,19 +49,43 @@ const PaymentDetails = () => {
               <form>
                 <div class="Payment-form-row">
                   <p>Card number*</p>
-                  <input type="text" class="form-control" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="cardNumber"
+                    onChange={(e) => onFormChange(e)}
+                    value={cardNumber}
+                  />
                 </div>
                 <div class="Payment-form-row">
                   <p>Expiry Date*</p>
-                  <input type="date" class="form-control" />
+                  <input
+                    type="date"
+                    class="form-control"
+                    name="expiryDate"
+                    onChange={(e) => onFormChange(e)}
+                    value={expiryDate}
+                  />
                 </div>
                 <div class="Payment-form-row">
                   <p>Cardholder name*</p>
-                  <input type="text" class="form-control" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="cardHolderName"
+                    onChange={(e) => onFormChange(e)}
+                    value={cardHolderName}
+                  />
                 </div>
                 <div class="Payment-form-row">
                   <p>CVV*</p>
-                  <input type="text" class="form-control" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="cvv"
+                    onChange={(e) => onFormChange(e)}
+                    value={cvv}
+                  />
                 </div>
                 <div class="Payment-form-row Billing-address">
                   <p>
@@ -50,13 +97,18 @@ const PaymentDetails = () => {
                 </div>
                 <div className="row form_buttons flight-time-footer-buttons">
                   <div className="col-md-6 col-12 row ml-auto">
-                    <div class="col-md-4 col-12 back-btn-div pl-0">
+                    {/* <div class="col-md-4 col-12 back-btn-div pl-0">
                       <button type="submit" class="Back-btn">
                         Back
                       </button>
-                    </div>
+                    </div> */}
                     <div class="col-md-8 col-12 accept-turm-condition pr-0">
-                      <button class="Submit-to-checkout">Complete Payment</button>
+                      <button
+                        class="Submit-to-checkout"
+                        onClick={paymentHandler}
+                      >
+                        Complete Payment
+                      </button>
                     </div>
                   </div>
                 </div>

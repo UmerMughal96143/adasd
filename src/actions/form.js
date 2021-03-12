@@ -29,3 +29,14 @@ export const suggestions = (data) => async (dispatch) => {
     dispatch({ type: "SUGGESTIONS", payload: data });
   } catch (error) {}
 };
+
+export const peopleBookingAction = (data) => async (dispatch) => {
+console.log("🚀 ~ file: form.js ~ line 34 ~ peopleBookingAction ~ data", data)
+  
+  try {
+    console.log('asdasd')
+    dispatch({ type: "PEOPLE_BOOKING", payload: data });
+    console.log('asssssssssssdasd')
+
+  } catch (error) {}
+};

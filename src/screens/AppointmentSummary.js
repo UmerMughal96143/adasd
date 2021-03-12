@@ -1,6 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { errorNotification } from "../utils/notification";
 
-const AppointmentSummary = () => {
+const AppointmentSummary = ({history}) => {
+  const { peoplesData } = useSelector((state) => state.Form);
+  const [condition1 , setCondition1] = useState(false)
+  const [condition2 , setCondition2] = useState(false)
+
+
+  const proceedToSummaryHandler = (e) => {
+    e.preventDefault()
+
+    if(!condition1 || !condition2){
+      errorNotification('Missing Terms and Conditions')
+      return
+    }
+    history.push('/paymentdetails')
+  }
   return (
     <div>
       <section class="Appointment-Summary">
@@ -32,82 +48,52 @@ const AppointmentSummary = () => {
               <p>Please check your appointment derails carefully below</p>
             </div>
             <div class="appointment-derails-wrapper">
-              <div class="person-details">
-                <div class="person-info">
-                  <h3 class="person-heading">Person 1</h3>
-                  <div class="Person-details-name">
-                    <p>Jammer Smith - PCR Fit to Fly</p>
-                  </div>
-                </div>
-                <div class="person-personal-detail">
-                  <div class="d-flex person-detail-flex-box">
-                    <div class="col-6">
-                      <div class="person-heading-icon">
-                        <h3 class="person-heading">Details</h3>
-                        <i class="fas fa-pen"></i>
+              {peoplesData.map((data) => {
+                return (
+                  <div class="person-details">
+                    <div class="person-info">
+                      <h3 class="person-heading">Person {data.Person} </h3>
+                      <div class="Person-details-name">
+                        <p>
+                          {data.firstName} {data.lastName} - PCR Fit to Fly
+                        </p>
                       </div>
                     </div>
-                    <div class="col-6">
-                      <button type="submit" class="remove-btn">
-                        Remove
-                      </button>
-                    </div>
-                  </div>
-                  <div class="Person-details-info">
-                    <p>
-                      Passport/ID card number :<span> 12345668156</span>
-                    </p>
-                    <p>
-                      Email address: <span> Jamessmith321@gmail.com</span>
-                    </p>
-                    <p>
-                      Mobile number:<span> Jamessmith321@gmail.com</span>
-                    </p>
-                  </div>
-                  <div class="Person-requird-details">
-                    <p>Documents required at appointment:</p>
-                  </div>
-                  <p class="Passport">Passport</p>
-                </div>
-              </div>
-              <div class="person-details">
-                <div class="person-info">
-                  <h3 class="person-heading">Person 1</h3>
-                  <div class="Person-details-name">
-                    <p>Jammer Smith - PCR Fit to Fly</p>
-                  </div>
-                </div>
-                <div class="person-personal-detail">
-                  <div class="d-flex person-detail-flex-box">
-                    <div class="col-6">
-                      <div class="person-heading-icon">
-                        <h3 class="person-heading">Details</h3>
-                        <i class="fas fa-pen"></i>
+                    <div class="person-personal-detail">
+                      <div class="d-flex person-detail-flex-box">
+                        <div class="col-6">
+                          <div class="person-heading-icon">
+                            <h3 class="person-heading">Details</h3>
+                            <i class="fas fa-pen"></i>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <button type="submit" class="remove-btn">
+                            Remove
+                          </button>
+                        </div>
                       </div>
+                      <div class="Person-details-info">
+                        <p>
+                          Passport/ID card number :
+                          <span> {data.passportIdCard}</span>
+                        </p>
+                        <p>
+                          Email address: <span> {data.email}</span>
+                        </p>
+                        <p>
+                          Mobile number:<span> {data.mobile}</span>
+                        </p>
+                      </div>
+                      <div class="Person-requird-details">
+                        <p>Documents required at appointment:</p>
+                      </div>
+                      <p class="Passport">Passport</p>
                     </div>
-                    <div class="col-6">
-                      <button type="submit" class="remove-btn">
-                        Remove
-                      </button>
-                    </div>
                   </div>
-                  <div class="Person-details-info">
-                    <p>
-                      Passport/ID card number :<span> 12345668156</span>
-                    </p>
-                    <p>
-                      Email address: <span> Jamessmith321@gmail.com</span>
-                    </p>
-                    <p>
-                      Mobile number:<span> Jamessmith321@gmail.com</span>
-                    </p>
-                  </div>
-                  <div class="Person-requird-details">
-                    <p>Documents required at appointment:</p>
-                  </div>
-                  <p class="Passport">Passport</p>
-                </div>
-              </div>
+                );
+              })}
+
               <div class="add-person">
                 <button class="add-person-btn">+ Add another person</button>
               </div>
@@ -126,6 +112,73 @@ const AppointmentSummary = () => {
                 <h3>£149</h3>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="amount-due-points">
+          <label>
+            <input type="checkbox" onChange={(e) => setCondition1(e.target.checked)}/>
+            <p>
+              I confirm I have checked the above and information and this is
+              correct
+            </p>
+          </label>
+          <label>
+            <input type="checkbox" onChange={(e) => setCondition2(e.target.checked)}/>
+            <p>
+              I acknowledge that the date I have selected is appropriate for my
+              plans, and I understand that my results may take up to 48 hours
+              after my test to arrive.
+            </p>
+          </label>
+        </div>
+        <div class="Appointment-modle-footer">
+          <div class="accept-turm-condition">
+            {/* <!-- <button class="Submit-to-checkout">Continue to Payment</button> -->
+                    <!-- Button trigger modal --> */}
+            <button
+              type="button"
+              class="Submit-to-checkout"
+              
+              onClick={(e) => proceedToSummaryHandler(e)}
+            >
+              Continue to Payment
+            </button>
+
+            <div
+              class="modal fade"
+              id="staticBackdrop"
+              data-bs-backdrop="static"
+              data-bs-keyboard="false"
+              tabindex="-1"
+              aria-labelledby="staticBackdropLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <p>
+                      Are you sure you what to remove <br /> "jammer smith" from
+                      the appointment ?
+                    </p>
+                    <div class="Appointment-model-footer-btns">
+                      <button type="button" class="btn">
+                        YES
+                      </button>
+                      <button type="button" class="btn" data-bs-dismiss="modal">
+                        NO
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="back-btn-div">
+            <button type="submit" class="Back-btn">
+              Back
+            </button>
           </div>
         </div>
       </section>

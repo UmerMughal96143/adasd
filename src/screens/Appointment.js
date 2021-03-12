@@ -5,19 +5,18 @@ import { Link } from "react-router-dom";
 import { addressesAppointment } from "../actions/form";
 import { errorNotification } from "../utils/notification";
 
-const Appointment = ({history}) => {
+const Appointment = ({ history }) => {
   const [addressResult, setAddressResult] = useState("");
   const [dropDownAddress, setDropdownAddress] = useState("");
   const [isAddressSuccess, setAddressSuccess] = useState(false);
 
-  const [numberOfPeoples, setNumberOfPeoples] = useState('');
+  const [numberOfPeoples, setNumberOfPeoples] = useState("");
 
   const [finalAddressArrayyy, setFinalAddressArray] = useState([]);
 
   const [postcode, setPostCode] = useState("");
 
   const [townCity, setTownCity] = useState("");
-  
 
   const dispatch = useDispatch();
 
@@ -42,16 +41,18 @@ const Appointment = ({history}) => {
   const findAddressHandler = async (e) => {
     e.preventDefault();
     if (!postcode) {
-      errorNotification('Enter Post Code')
+      errorNotification("Enter Post Code");
       return;
     }
-    setAddressSuccess(true)
+
     let result = await axios.post(
       `https://pcls1.craftyclicks.co.uk/json/rapidaddress?key=35000-bcc97-ce11b-02c57&postcode=${postcode}&response=data_formatted`
     );
     setAddressResult(result.data);
     // setTownCity(result.data);
-    setAddressSuccess(false)
+    if (result.data) {
+      setAddressSuccess(true);
+    }
   };
 
   const continueHandler = (e) => {
@@ -63,12 +64,11 @@ const Appointment = ({history}) => {
         numberOfPeoples: numberOfPeoples,
       };
       dispatch(addressesAppointment(formData));
-      history.push('/suggestions')
+      history.push("/suggestions");
     } else {
-      errorNotification('Please fill all fields')
-      return
+      errorNotification("Please fill all fields");
+      return;
     }
-    
   };
 
   return (
@@ -106,26 +106,38 @@ const Appointment = ({history}) => {
               </button>
             </div>
           </div>
-          <div class="selectdiv">
-            <select onChange={(e) => setDropdownAddress(e.target.value)} required>
-              <option>---Please Select your address---</option>
-              {finalAddressArrayyy &&
-                finalAddressArrayyy.map((state) => {
-                  return (
-                    <option>
-                      {state.line_1} {state.line_2} {state.organisation_name}{" "}
-                      {state.townCity}{" "}
-                    </option>
-                  );
-                })}
-            </select>
-          </div>
+          {isAddressSuccess && (
+            <div class="selectdiv">
+              <select
+                onChange={(e) => setDropdownAddress(e.target.value)}
+                required
+              >
+                <option>---Please Select your address---</option>
+                {finalAddressArrayyy &&
+                  finalAddressArrayyy.map((state) => {
+                    return (
+                      <option>
+                        {state.line_1} {state.line_2} {state.organisation_name}{" "}
+                        {state.townCity}{" "}
+                      </option>
+                    );
+                  })}
+              </select>
+            </div>
+          )}
+
           <div class="form-group mt-5">
             <p class="appointment-form-heading">
               How many people will require a PCR test at the appointment?
             </p>
             <div class="selectdiv">
-              <select onChange={(e) => setNumberOfPeoples(e.target.value)} required>
+              <select
+                onChange={(e) => {
+                  setNumberOfPeoples(e.target.value);
+                  localStorage.setItem("numberOfUsers", e.target.value);
+                }}
+                required
+              >
                 <option>---Please Select number of people---</option>
                 {numberOfPeoplesData.map((peo) => {
                   return <option>{peo}</option>;
@@ -141,7 +153,8 @@ const Appointment = ({history}) => {
               <button
                 type="submit"
                 onClick={(e) => continueHandler(e)}
-                class="Next-btn">
+                class="Next-btn"
+              >
                 Continue
               </button>
             </div>

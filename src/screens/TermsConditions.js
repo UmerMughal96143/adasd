@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { errorNotification } from "../utils/notification";
 
-const TermsConditions = () => {
+const TermsConditions = ({history}) => {
+
+  const [condition1 , setCondition1] = useState(false)
+  const [condition2 , setCondition2] = useState(false)
+  const [condition3 , setCondition3] = useState(false)
+  const [condition4 , setCondition4] = useState(false)
+
+
+
+
+  const proceedToSummaryHandler = (e) => {
+    e.preventDefault()
+
+    if(!condition1 || !condition2 || !condition3 || !condition4){
+      errorNotification('Missing Terms and Conditions')
+      return
+    }
+    history.push('/appointmentsummary')
+  }
   return (
     <div>
       <section>
@@ -38,33 +57,32 @@ const TermsConditions = () => {
             </div>
             <div class="user-agree-conditions">
               <label>
-                <input type="checkbox" />
+                <input type="checkbox" onChange={(e) => setCondition1(e.target.checked)} />
                 <h3>
                   By ticking I acknowledge I have read and accept the above
                   statement.
                 </h3>
               </label>
               <label>
-                <input type="checkbox" />
+                <input type="checkbox" onChange={(e) => setCondition2(e.target.checked)}/>
                 <h3>I have read and accept the Terms and Conditions.</h3>
               </label>
               <label>
-                <input type="checkbox" />
+                <input type="checkbox" onChange={(e) => setCondition3(e.target.checked)}/>
                 <h3>I have read and agree to the Fair Processing Notice.</h3>
               </label>
               <label>
-                <input type="checkbox" />
+                <input type="checkbox" onChange={(e) => setCondition4(e.target.checked)}/>
                 <h3>
                   I accept the no refund policy unless in the event of an
                   airline cancellation.
                 </h3>
               </label>
               <div class="accept-turm-condition">
-                <Link to="/appointmentsummary">
-                  <button class="Submit-to-checkout">
+                  <button class="Submit-to-checkout" onClick={(e) => proceedToSummaryHandler(e)}>
                     Accept and proceed to summary
                   </button>
-                </Link>
+                
               </div>
               <div class="back-btn-div">
                 <button type="submit" class="Back-btn">
