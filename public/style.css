@@ -1,0 +1,994 @@
+@font-face {
+    font-family: "Poppins-Light";
+    src: url(asstes/Poppins/Poppins-Light.ttf);
+  }
+  @font-face {
+    font-family: "Poppins-Bold";
+    src: url(asstes/Poppins/Poppins-Bold.ttf);
+  }
+  @font-face{
+      font-family: "Poppins-SemiBold";
+      src: url(asstes/Poppins/Poppins-SemiBold.ttf);
+  }
+  @font-face{
+    font-family: "Poppins-Medium";
+    src: url(asstes/Poppins/Poppins-Medium.ttf);
+}
+@font-face{
+    font-family: "Poppins-Regular";
+    src: url(asstes/Poppins/Poppins-Regular.ttf);
+}
+header{
+    position: sticky;
+    z-index: 9;
+    top: 0px;
+}
+.site-container{
+    max-width: 666px;
+    margin: 0 auto;
+}
+body .container-fluid{
+    padding: 26px 25px;
+}
+body input,select:focus{
+    outline: none;
+}
+.subheading{
+    font-size: 20px;
+    font-family: "Poppins-Bold";
+}
+/* Select Styling */
+.selectdiv {
+    position: relative;
+  }
+  
+  .selectdiv:after {
+    content: '\f078';
+    font: normal normal normal 20px/1 FontAwesome;
+    color: #1e9190;
+    right: 11px;
+    top: 6px;
+    height: 34px;
+    padding: 5px 0px 0px 8px;
+    position: absolute;
+    pointer-events: none;
+  }
+  
+  select::-ms-expand {
+  display: none;
+  }
+  
+  .selectdiv select {
+    background-color: #ffffff;
+    border: 1px solid #0ebeff;
+    border-radius: .25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0px 0px;
+    padding: .375rem .75rem;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #333;
+    background-image: none;
+    -ms-word-break: normal;
+    word-break: normal;
+  }
+  
+/* Select Styling */
+
+/* Input Styling */
+.site-input {
+    position: relative;
+  }
+  
+  .site-input:after {
+    content: '\f133';
+    font: normal normal normal 30px/1 FontAwesome;
+    color: #1e9190;
+    right: 11px;
+    top: 6px;
+    height: 34px;
+    padding: 0px 5px 0px 8px;
+    position: absolute;
+    pointer-events: none;
+  }
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+  .site-input .icon-input {
+    background-color: #ffffff;
+    border: 1px solid #0ebeff;
+    border-radius: .25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: block;
+    width: 86%;
+    max-width: 100%;
+    margin: 0px 0px;
+    padding: .375rem .75rem;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #333;
+    background-image: none;
+    -ms-word-break: normal;
+    word-break: normal;
+  }
+/* Input Styling */
+
+.main-navbar{
+    background-image: linear-gradient(90deg, #0491A5, #8DCCBE);
+    height: 98px;
+}
+.main-navbar button{
+    margin-top: -15px;
+}
+.main-logo img{
+    height: 100px;
+}
+body .main-logo{
+    margin: 0px auto;
+    width: 80%;
+    text-align: center;
+}
+body .white-logo{
+    margin: -15px auto;
+    width: 80%;
+    text-align: center;
+}
+.header-white{
+    background-color: white;
+}
+/* End Header */
+/* INDEX PAGE */
+.breaking-news-box{
+    background-color: #1E9190;
+    padding: 26px 28px;
+    margin: 5px 0px;
+    text-align: center;
+}
+.breaking-news{
+    font-family: "Poppins-Bold";
+    font-size: 24px;
+    color: #ffffff;
+}
+.breaking-news-dec{
+    color: white;
+    font-size: 14px;
+    margin-bottom: 0px;
+    font-family: "Poppins-Medium";
+}
+.breaking-news-dec a{
+    color: white;
+    font-size: 14px;
+    font-family: "Poppins-Medium";
+}
+.travelling-tickets-heading{
+    color:#1E9190;
+    font-size: 18px;
+    font-family: "Poppins-Bold";
+    text-decoration: underline;
+    text-align: left;
+}
+.travelling-tickets-content .travelling-tickets-box-right{
+    padding-left: 0px;
+}
+.travelling-tickets-wrapper .travelling-tickets-heading{
+    text-align: center;
+    margin-bottom: 30px;
+}
+.travelling-tickets-wrapper{
+    padding: 22px 0px;
+}
+.travelling-tickets{
+    background-color: #e7f3f4;
+    border-radius: 12px;
+    padding: 25px 15px;
+    margin: 25px 0px;
+    width: fit-content;
+}
+.travelling-tickets-box-right p{
+    margin-bottom: 0px;
+    text-align: left;
+}
+.travelling-tickets-box-left{
+    text-align: right;
+}
+.tickets-button{
+    border: 1px solid white;
+    background-color: #1E9190;
+    color: white;
+    padding: 7px 30px;
+    border-radius: 6px;
+}
+.tickets-amount{
+    font-family: "Poppins-Bold";
+    color: black;
+    font-size: 20px;
+}
+.travelling-tickets-box-right{
+    padding-top: 23px;
+}
+.travelling-tickets-content{
+    margin: 21px 0px 5px 0px;
+}
+.travelling-tickets-services{
+    font-family: "Poppins-Light";
+    font-size: 16px;
+    color: black;
+}
+.travelling-tickets-confirmation-email{
+    font-family: "Poppins-Light";
+    font-size: 12px;
+    color: black;
+}
+.travelling-tickets .travelling-tickets-heading{
+    text-decoration: none;
+}
+.travelling-tickets-hightlight-text{
+    color:#1E9190;
+    font-size: 20px;
+    font-family: "Poppins-Bold";
+    text-decoration: underline;
+    margin: 0px 4px;
+}
+.travelling-tickets-footer-content{
+    text-align: center;
+}
+.travelling-tickets-footer-content-heading{
+    font-size: 16px;
+    color: black;
+    margin-bottom: 9px;
+    font-family: "Poppins-Medium";
+}
+.travelling-tickets-footer-contentsubheading{
+    font-size: 10px;
+    color: black;
+    font-family: "Poppins-Regular";
+}
+/* INDEX PAGE */
+/* user-detail */
+.flite-time{
+    margin: 15px;
+    text-align: center;
+}
+.PRC-flite-heading{
+    font-family: "Poppins-Bold"; 
+    font-size: 24px;
+    color: #1E9190;
+}
+.PRC-flite-dec{
+    font-size: 16px;
+    font-family: "Poppins-Medium";
+}
+.passenger-btn{
+    background: none;
+    color: #1E9190;
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 8px;
+    background-color: #E4E4E4;
+    font-family: "Poppins-SemiBold";
+}
+.Back-btn{
+    border: 1px solid #1E9190;
+    color: #1E9190;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px 0px;
+    background-color: white;
+}
+.Back-btn:hover{
+    border: 1px solid #1E9190;
+    color: white;
+    background-color: #1E9190;
+}
+.Next-btn{
+    background-color: #1E9190;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid #1E9190;
+    width: 100%;
+    padding: 10px 0px;
+}
+.Next-btn:hover{
+    border: 1px solid #1E9190;
+    color: #1E9190;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px 0px;
+    background-color: white;
+}
+.form_buttons{
+    margin-top: 30px;
+}
+form label{
+    font-family: "Poppins-Medium";
+    font-size: 16px;
+    color: black;
+}
+body form input{
+    border: 1px solid #1e9190 !important;
+}
+body form select{
+    border: 1px solid #1e9190 !important;
+}
+.Submit-to-checkout{
+    border: 1px solid white;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px 0px;
+    background-image: linear-gradient(45deg, #018195, #7CC1B1);
+    margin: 9px 0px;
+}
+.user-detail-footer-btns{
+    margin: 50px 0px;
+}
+/* user-detail Page*/
+/* appointment Page*/
+.appointment-header{
+    margin: 20px 20px;
+}
+.appointment-heading{
+    font-family: "Poppins-Bold";
+    font-size: 16px;
+    color: #1E9190;
+    line-height: 25px;
+    margin-bottom: 70px;
+    text-align: center;
+}
+.appointment-form-heading{
+    font-family: "Poppins-SemiBold";
+    font-size: 14px;
+}
+.Find-Address-btn .tickets-button{
+    padding: 7px 12px;
+}
+.appointment-user-address-row .Find-Address-btn {
+    padding-left: 0px ;
+    text-align: right;
+}
+.appointment-footer-content{
+    font-size: 10px;
+    color: black;
+    margin: 50px 0px;
+    font-family: "Poppins-Regular";
+}
+.site-select-input{
+    border: 1px solid #1e9190 !important;
+    border-radius: 3px;
+    width: 100%;
+    padding: 7px 10px;
+}
+/* appointment Page*/
+/* Flight Time */
+.appointment-date-div{
+    margin: 20px 0px 10px 0px;
+}
+.flight-time-footer-text{
+    display: flex;
+}
+.flight-time-footer-text i{
+    margin: 5px 5px 0px 0px;
+}
+.appointment-form .flight-time-footer-buttons{
+    margin: 50px 0px;
+}
+.flight-time-footer-buttons >div{
+    align-items: center;
+}
+/* Flight Time */
+/* people-booking */
+.people-booking-copy-dedail-person h3{
+    font-family: "Poppins-Bold";
+    font-size: 16px;
+}
+.people-booking-copy-dedail-person label{
+    display: flex;
+    align-items: baseline;
+}
+.people-booking-copy-dedail-person label input{
+    margin-right: 10px;
+}
+.people-booking-copy-dedail-person{
+    margin: 54px 0px 30px 0px;
+}
+body .people-email-booking p{
+    margin-bottom: 0px;
+    font-size: 14px;
+    font-family: "Poppins-SemiBold";
+    text-align: left;
+}
+body .people-email-booking{
+    padding: 10px 10px;
+    width: 100%;
+}
+/* people-booking */
+/* Test-Location */
+.Location-mini-heading {
+    font-family: "Poppins-Bold";
+    font-size: 18px;
+    color: #1E9190;
+}
+.drive-gide{
+    background-color: #E4E4E4;
+    padding: 10px 40px;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+.drive-gide p{
+    margin-bottom: 0px;
+    font-size: 9px;
+    font-family: "Poppins-SemiBold";
+}
+.see-location-modle{
+    width: 40%;
+    margin: 0 auto;
+}
+.Test-Location-box{
+    background-color: #1E9190;
+    padding: 25px 0px;
+    color: white;
+    text-align: center;
+}
+.Test-Location-box h3{
+    margin-bottom: 0px;
+    font-family: "Poppins-Bold";
+    font-size: 18px;
+}
+.Location-box{
+    border: 1px solid #1E9190;
+    padding: 18px 16px;
+    text-align: center;
+    border-radius: 12px;
+    margin: 10px 0px;
+}
+.home-icon{
+    font-size: 40px;
+    color: #1e9190;
+}
+.Location-box-header{
+    margin-bottom: 0px;
+}
+.Location-box-header span{
+    font-family: "Poppins-Regular";
+    font-size: 14px;
+    color: black;
+}
+.Location-amount{
+    color: black;
+    font-family: "Poppins-Bold";
+    font-size: 20px;
+}
+.see-location-btn-div{
+    width: 53%;
+    margin: 0 auto;
+}
+.Location-box p{
+    margin-bottom: 0px;
+}
+body .modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #1e9190;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    outline: 0;
+    color: white;
+    text-align: left;
+}
+body #staticBackdrop{
+    background-image: linear-gradient(90deg, #ffffffe6, #ffffffe6);
+}
+.modal-title{
+    color:  white;
+    font-size: 18px;
+    font-family: "Poppins-Bold";
+}
+.modal-body ul li{
+    font-family: "Poppins-Medium";
+    font-size: 16px;
+}
+/* Test-Location */
+/* Suggestion */
+.suggestion-date-row .icon-input{
+    width: 100%;
+}
+.appointment-prosecer-steps .appointment-prosecer-steps-subheading {
+    font-family: "Poppins-Medium";
+    font-size: 16px;
+    margin: 30px 0px;
+}
+.appointment-prosecer-steps-mainheading{
+    font-family: "Poppins-Bold";
+    font-size: 20px;
+    color: #1E9190;
+}
+.suggest-best-time-btn{
+    background-color: #1E9190;
+    border: 1px solid #1E9190;
+    color: white;
+    width: 100%;
+    padding: 10px 0px;
+    border-radius: 5px;
+}
+.user-choose-conent:active{
+    background-color: #1E9190;
+    border: 1px solid #1E9190;
+    color: white;
+    width: 100%;
+    padding: 10px 0px;
+    border-radius: 5px;
+}
+.suggest-best-time{
+    padding: 5px 0px;
+}
+.suggest-best-time span{
+    font-family: "Poppins-Bold";
+    font-size: 14px;
+}
+.user-choose-heading{
+    font-family: "Poppins-Medium";
+    font-size: 16px;
+    color: black;
+}
+.user-choose{
+    margin: 28px 0px 44px 0px;
+}
+.user-choose-conent{
+    background-color: transparent;
+    border: 1px solid #1E9190;
+    color: black;
+    width: 100%;
+    padding: 10px 0px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: "Poppins-Regular";
+}
+.user-choose-box {
+    margin: 17px 0px;
+}
+.user-choose-heading{
+    margin-bottom: 0px;
+}
+.user-choose-box:nth-child(2) {
+    margin-top: 6px;
+}
+.user-choose-box:last-child {
+    margin-bottom: 0px;
+}
+.footer-btn:nth-child(1){
+    padding-left: 0px;
+}
+.footer-btn :nth-child(2){
+    padding-right: 0px;
+}
+/* Suggestion */
+/* Term and Condition */
+.Terms-Condition_heaading{
+    font-family: "Poppins-Bold";
+    font-size: 16px;
+    margin-bottom: 28px;
+}
+.Terms-Conditions-points{
+    display: flex;
+    margin-bottom: 15px;
+    align-items: baseline;
+}
+.Terms-Conditions-points p i{
+    color: #1E9190;
+    margin-right: 5px;
+}
+.Terms-Conditions-points p{
+    font-size: 16px;
+    color: black;
+    font-family: "Poppins-Regular";
+}
+.user-agree-conditions label{
+    display: flex;
+    margin: 28px 0px;
+    align-items: baseline;
+}
+.user-agree-conditions label input{
+    margin-right: 10px;
+}
+.user-agree-conditions label h3{
+    font-family: "Poppins-Bold";
+    font-size: 16px;
+}
+.accept-turm-condition{
+    width: 80%;
+    margin: 0 auto;
+}
+.back-btn-div{
+    width: 50%;
+    margin: 7px auto;
+}
+/* Term and Condition */
+/* Payment Details */
+.Payment-Details-heading{
+    font-family: "Poppins-Regular";
+    font-size: 16px;
+    color: black;
+}
+.Payment-Details-heading span{
+    font-family: "Poppins-Bold";
+    font-size: 16px;
+    color: #1E9190;
+}
+.Payment-Details-subheading{
+    font-family: "Poppins-Regular";
+    font-size: 16px;
+    color: black; 
+}
+.Payment-Details-subheading span{
+    font-family: "Poppins-Bold";
+    font-size: 16px;
+    color: #1E9190;
+}
+.Payment-Details-form h3{
+    font-family: "Poppins-Bold";
+    font-size: 22px;  
+    margin: 50px 0px 47px 0px;
+}
+.Payment-Details-form h3 span{
+    font-family: "Poppins-Bold";
+    font-size: 24px; 
+    color: #1E9190; 
+}
+.Payment-form-row p{
+    margin-bottom: 4px;
+    font-family: "Poppins-Medium";
+    font-size: 16px;
+}
+.Payment-form-row{
+    margin-bottom: 17px;
+}
+.Payment-form-row .travelling-tickets{
+    margin: 5px 0px;
+    padding: 20px 20px;
+}
+/* Payment Details */
+
+/* Appointment Summary */
+.Appointment-Summary .breaking-news-box{
+    margin: 2px 0px;
+}
+.mini-heading{
+    text-align: center;
+}
+.mini-heading p{
+    font-family: "Poppins-Bold";
+    font-size: 16px;  
+    text-align: center;
+}
+.person-heading{
+    font-family: "Poppins-Bold";
+    font-size: 18px;
+    color: #1E9190;
+}
+.Person-details-name{
+    background-color: #e8f4f4;
+    padding: 10px 19px;
+    border-radius: 12px;
+}
+.Person-details-name p{
+ font-size: 14px;
+ margin-bottom: 0px;
+ font-family: "Poppins-Bold";
+}
+.person-personal-detail{
+    padding: 23px 0px;
+}
+.Person-details-name span{
+    font-family: "Poppins-Regular";
+    font-size: 14px;
+}
+.Person-details-info{
+    background-color: #e8f4f4;
+    padding: 10px 19px;
+    border-radius: 12px;
+}
+.Person-details-info p{
+    font-size: 14px;
+    font-family: "Poppins-Bold";
+    margin: 4px 0px;
+}
+.Person-requird-details{
+    margin: 15px 0px 4px 0px;
+}
+.Person-requird-details p{
+    font-size: 14px;
+    font-family: "Poppins-Bold";   
+    margin-bottom: 0px;
+}
+.Passport{
+    font-size: 14px;
+    font-family: "Poppins-Regular"; 
+}
+.remove-btn{
+    border: 1px solid #1E9190;
+    color: #1E9190;
+    border-radius: 5px;
+    float: right;
+    padding: 5px 8px;
+    background-color: white;
+}
+.person-detail-flex-box{
+    margin-bottom: 12px;
+    align-items: center;
+}
+.person-heading-icon{
+    display: flex;
+}
+.person-heading-icon i{
+    font-size: 13px;
+    margin-left: 10px;
+}
+.add-person-btn{
+    padding: 13px 10px;
+    border: 1px solid #1E9190;
+    border-radius: 6px;
+    background: none;
+    font-size: 14px;
+    font-family: "Poppins-Regular"; 
+    color: #1E9190;
+}
+.amount-due{
+    margin: 57px 0px 42px 0px;
+    border-top: 1px solid #1e9190;
+    border-bottom: 1px solid #1e9190;
+}
+.amount-due-text h3{
+    font-size: 24px;
+    color: black;
+    text-align: left;
+    font-family: "Poppins-Bold";
+}
+.amount-due-price h3{
+    font-size: 24px;
+    color: #1e9190;
+    text-align: right;
+    font-family: "Poppins-Bold"; 
+}
+.amount-due-points label p{
+    font-size: 16px;
+    margin-left: 12px;
+    font-family: "Poppins-Medium";
+}
+.amount-due-points{
+    padding: 0px 25px;
+}
+.amount-due-points label{
+    display: flex;
+    align-items: baseline;
+}
+.Appointment-footer-buttons{
+    width: 80%;
+    margin: 0 auto;
+}
+.accept-turm-condition .modal-dialog{
+    top: 30%;
+}
+.Appointment-modle-footer p{
+    font-family: "Poppins-SemiBold";
+    font-size: 16px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+.Appointment-modle-footer .modal-body{
+    padding: 34px;
+}
+.Appointment-model-footer-btns{
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+}
+.Appointment-model-footer-btns button{
+    background-color: white;
+    color: #1e9190;
+    font-size: 14px;
+    width: 40%;
+    margin: 0 auto;
+    font-family: "Poppins-Medium";
+}
+/* Appointment Summary */
+
+/* Booking Complete */
+.Appointment-subheader{
+    text-align: center;
+}
+.Appointment-subheader i{
+    color: #1e9190;
+    font-size: 50px;
+    margin-top: 27px;
+}
+.Booking-Complete-wrapper .subheading{
+    text-align: center;
+}
+.Save-PDF-btn{
+    font-size: 14px;
+    padding: 10px 15px;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    display: flex;
+    margin: 0 auto;
+    cursor: pointer;
+    align-items: center;
+    font-family: "Poppins-Regular"; 
+    justify-content: center;
+    background-image:linear-gradient(45deg, #018195, #7CC1B1);
+}
+.Save-PDF-btn i{
+    font-size: 35px;
+    margin-right: 12px;
+}
+.Booking-Complete-details h3{
+    text-align: center;
+    margin: 20px 0px;
+    margin: 46px 0px 22px 0px;
+}
+.Person-details-info span{
+    font-family: "Poppins-Regular"; 
+    font-size: 14px;
+}
+.Booking-Complete-details .Person-details-info p {
+    font-size: 14px;
+    font-family: "Poppins-Bold";
+    margin: 7px 0px;
+}
+.Booking-Complete-person-data-box{
+    border: 1px solid #3B9EA6;
+    border-radius: 12px;
+    margin: 15px 0px;
+}
+.Booking-person-identity span{
+    font-family: "Poppins-Regular"; 
+    font-size: 16px;
+}
+.Booking-person-info{
+    font-size: 18px;
+    font-family: "Poppins-Bold";
+    padding: 10px 20px;
+    border-bottom: 1px solid #1e9190;
+}
+.Booking-person-info span{
+    font-size: 18px;
+    color: #1e9190;
+    font-family: "Poppins-Bold";
+}
+.Booking-person-identity{
+    font-size: 18px;
+    font-family: "Poppins-Bold";
+    padding: 10px 20px;
+    border-bottom: 1px solid #1e9190;
+}
+.Booking-person-dec{
+    font-family: "Poppins-Regular"; 
+    padding: 10px 20px;
+    font-size: 16px;
+}
+.Booking-person-FAQ{
+    color: white;
+    padding: 35px 35px;
+    background-color: #1E9190;
+    border-radius: 12px;
+    text-align: center;
+    margin: 22px 0px 17px 0px;
+}
+.Booking-person-question-heading{
+    font-family: "Poppins-SemiBold";
+    font-size: 18px;
+}
+.Booking-person-FAQ p{
+    font-family: "Poppins-Regular"; 
+    font-size: 16px;
+}
+.Booking-person-FAQ .Save-PDF{
+    max-width: 250px;
+    margin: 10px auto;
+}
+.Booking-person-FAQ .Save-PDF .Save-PDF-btn{
+    width: 100%;
+    border: 1px solid white;
+}
+.Booking-person-content-tagline{
+    font-family: "Poppins-Regular"; 
+    font-size: 16px;
+}
+.Booking-person-chat-type{
+    margin: 28px 0px;
+}
+.Booking-ml i{
+    margin-left: -25px;
+}
+.invite-frinds-box{
+    border: 2.5px solid #3B9EA6;
+    border-radius: 12px;
+    padding: 20px 16px;
+    text-align: center;
+    margin: 15px 0px;
+}
+.invite-frinds-heading{
+    font-size: 18px;
+    font-family: "Poppins-Bold";
+}
+.Booking-person-chat-type .Save-PDF-btn i {
+    font-size: 30px;
+    margin-right: 12px;
+}
+.Booking-person-chat-type .Save-PDF .phono-min-size{
+    font-size: 25px;
+}
+/* Booking Complete */
+
+@media screen and (max-width:768px){
+   body  .Confirm-passport{
+        padding: 0px;
+    }
+    .site-container{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .flight-time-footer-buttons{
+        margin: 0 auto;
+        width: 100%;
+    }
+    .flight-time-footer-buttons >div{
+        margin: 0px;
+        padding: 0px;
+    }
+    .flight-time-footer-buttons >div >div{
+        margin: 0px;
+        padding: 10px 0px;
+    }
+    .travelling-tickets{
+        background-color: #e7f3f4;
+        border-radius: 12px;
+        padding: 25px 10px;
+        margin: 25px auto;
+        width: 100%;
+    }
+    .travelling-tickets-hightlight-text {
+        color: #1E9190;
+        font-size: 20px;
+        font-family: "Poppins-Bold";
+        text-decoration: underline;
+        margin: 0px 7px;
+    }
+}
+@media screen and (max-width:375px){
+    .see-location-btn-div {
+        width: 65%;
+        margin: 0 auto;
+    }
+    .see-location-modle {
+        width: 60%;
+        margin: 0 auto;
+    }
+ }
+ @media screen and (max-width:320px){
+    .see-location-btn-div {
+        width: 75%;
+        margin: 0 auto;
+    }
+    .see-location-modle {
+        width: 60%;
+        margin: 0 auto;
+    }
+ }
