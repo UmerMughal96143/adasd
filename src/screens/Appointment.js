@@ -29,6 +29,8 @@ const Appointment = ({ history }) => {
 
       setFinalAddressArray(finalAddressArray);
     }
+    window.scrollTo(0, 0);
+
   }, [addressResult]);
 
   let numberOfPeoplesData = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];

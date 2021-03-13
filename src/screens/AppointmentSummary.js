@@ -1,37 +1,35 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { errorNotification } from "../utils/notification";
-import {removePersons} from '../actions/form'
+import { removePersons } from "../actions/form";
+import Modall from "../components/Modal";
 
-const AppointmentSummary = ({history}) => {
+const AppointmentSummary = ({ history }) => {
   const { peoplesData } = useSelector((state) => state.Form);
-  const [condition1 , setCondition1] = useState(false)
-  const [condition2 , setCondition2] = useState(false)
-  const [modal , setModal] = useState(false)
+  const [condition1, setCondition1] = useState(false);
+  const [condition2, setCondition2] = useState(false);
+  const [modal, setModal] = useState(false);
 
   const dispatch = useDispatch();
 
-
   const proceedToSummaryHandler = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    if(!condition1 || !condition2){
-      errorNotification('Missing Terms and Conditions')
-      return
+    if (!condition1 || !condition2) {
+      errorNotification("Missing Terms and Conditions");
+      return;
     }
-    history.push('/paymentdetails')
-  }
+    history.push("/paymentdetails");
+  };
 
-  if(peoplesData){
-    localStorage.setItem('peoples' , JSON.stringify(peoplesData))
+  if (peoplesData) {
+    localStorage.setItem("peoples", JSON.stringify(peoplesData));
   }
-
 
   const personRemoveHandler = (id) => {
-
+  console.log("🚀 ~ file: AppointmentSummary.js ~ line 30 ~ personRemoveHandler ~ id", id)
     dispatch(removePersons(id))
-
-  }
+  };
   return (
     <div>
       <section class="Appointment-Summary">
@@ -73,26 +71,25 @@ const AppointmentSummary = ({history}) => {
                           </div>
                         </div>
                         <div class="col-6 Remove-appointment-modle">
-                          <button type="button" class="remove-btn " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                              Remove
-                        </button>
-                    
-                    {/* <!-- Modal --> */}
-                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <p>
-                                    Are you sure you what to remove <br /> "jammer smith" from the appointment ?
-                                </p>
-                                <div class="Appointment-model-footer-btns">
-                                    <button type="button" class="btn mr-1" onClick={(e) => personRemoveHandler(e)}>YES</button>
-                                    <button type="button" class="btn ml-1" data-bs-dismiss="modal">NO</button>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
+                          <button
+                            type="button"
+                            class="remove-btn "
+                            data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop"
+                            onClick={() => setModal(true)}
+                          >
+                            Remove
+                          </button>
+
+                          {/* <!-- Modal --> */}
+
+                          {modal && (
+                            <Modall
+                              showModal={true}
+                              closeModal={() => setModal(false)}
+                              personRemoveHandler={() =>  personRemoveHandler(data.Person)}
+                            />
+                          )}
                         </div>
                       </div>
                       <div class="Person-details-info">
@@ -140,14 +137,20 @@ const AppointmentSummary = ({history}) => {
       <section className="site-container">
         <div class="amount-due-points">
           <label>
-            <input type="checkbox" onChange={(e) => setCondition1(e.target.checked)}/>
+            <input
+              type="checkbox"
+              onChange={(e) => setCondition1(e.target.checked)}
+            />
             <p>
               I confirm I have checked the above and information and this is
               correct
             </p>
           </label>
           <label>
-            <input type="checkbox" onChange={(e) => setCondition2(e.target.checked)}/>
+            <input
+              type="checkbox"
+              onChange={(e) => setCondition2(e.target.checked)}
+            />
             <p>
               I acknowledge that the date I have selected is appropriate for my
               plans, and I understand that my results may take up to 48 hours

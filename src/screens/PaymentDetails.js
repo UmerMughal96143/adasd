@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { errorNotification } from "../utils/notification";
 
 const PaymentDetails = ({ history }) => {
@@ -23,6 +23,11 @@ const PaymentDetails = ({ history }) => {
     }
     history.push("/bookingcomplete");
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+
+  },[])
 
   return (
     <div>

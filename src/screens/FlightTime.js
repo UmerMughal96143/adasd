@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const FlightTime = () => {
 
   const [formData , setFormData] = useState({departure :  "" , reccommendAppointmentDate : "" })
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+
+  },[])
   return (
     <div class="site-container mb-4">
       <section>
