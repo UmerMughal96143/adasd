@@ -7,7 +7,7 @@ const TermsConditions = ({history}) => {
   const [condition1 , setCondition1] = useState(false)
   const [condition2 , setCondition2] = useState(false)
   const [condition3 , setCondition3] = useState(false)
-  const [condition4 , setCondition4] = useState(false)
+  const [condition4 , setCondition4] = useState(true)
 
 
 
