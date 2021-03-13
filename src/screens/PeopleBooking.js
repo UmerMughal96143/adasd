@@ -259,6 +259,7 @@ const PeopleBooking = ({ history }) => {
         id: editMan.id,
       };
       dispatch(updatePersonAction(data));
+      history.push('/appointmentsummary')
       // let peoplesData = []
       // peoplesData.unshift(data)
       // localStorage.setItem('peoples' , JSON.stringify(peoplesData) )

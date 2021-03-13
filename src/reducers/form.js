@@ -84,12 +84,8 @@ export const Form = (state = iniitialState, action) => {
       };
 
     case "UPDATE_PERSON":
-      var newData = state.peoplesData.map(el => {
-        if(el.id == action.payload.id)
-           return Object.assign({}, el, action.payload)
-        return el
-    });
-      console.log("🚀 ~ file: form.js ~ line 92 ~ Form ~ newData", newData)
+      var foundIndex = state.peoplesData.findIndex((x) => x.id == action.payload.id);
+      state.peoplesData[foundIndex] = action.payload;
       return{
         ...state,
       }

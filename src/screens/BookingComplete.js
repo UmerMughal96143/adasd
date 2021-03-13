@@ -1,49 +1,67 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
+import Pdf from "react-to-pdf";
 
 const BookingCOmplete = () => {
+  const ref = React.createRef();
 
+  const options = {
+    orientation: 'landscape',
+    unit: 'in',
+    format: [4,2]
+};
   useEffect(() => {
     window.scrollTo(0, 0);
-
-  },[])
-    return (
-        <div>
-          <section class="Appointment-Summary">
-            <div class="Test-Location-box">
-              <h3>Booking Complete</h3>
-            </div>
-            <div class="Appointment-subheader">
-              <i class="fas fa-check-circle"></i>
-            </div>
-          </section>
-        <div class="site-container mb-4">
+  }, []);
+  return (
+    <div>
+      <section class="Appointment-Summary">
+        <div class="Test-Location-box">
+          <h3>Booking Complete</h3>
+        </div>
+        <div class="Appointment-subheader">
+          <i class="fas fa-check-circle"></i>
+        </div>
+      </section>
+      <div class="site-container mb-4">
         <section>
           <div class="Booking-Complete-wrapper">
             <div class="subheading">
               <p>Appointment Confirmation</p>
               <div class="Save-PDF">
-                <button type="submit" class="Save-PDF-btn">
-                  <i class="fas fa-file-pdf"></i> Save booking confirmation as a
-                  PDF
-                </button>
+                <Pdf targetRef={ref} filename="flight.pdf" >
+                  {({ toPdf }) => (
+                    <button type="submit" class="Save-PDF-btn" onClick={toPdf}>
+                      <i class="fas fa-file-pdf"></i> Save booking confirmation
+                      as a PDF
+                    </button>
+                  )}
+                </Pdf>
               </div>
             </div>
-            <div class="Booking-Complete-Inner-wrapper">
+            <div class="Booking-Complete-Inner-wrapper" ref={ref}>
               <div class="Booking-Complete-details">
                 <div class="person-info">
                   <h3 class="person-heading">Your appointment details</h3>
                   <div class="Person-details-info">
-                    <p>Appointment date :<span> 21 February 2021 </span></p>
-                    <p>Appointment time: <span> Between 8am - 4pm</span></p>
+                    <p>
+                      Appointment date :<span> 21 February 2021 </span>
+                    </p>
+                    <p>
+                      Appointment time: <span> Between 8am - 4pm</span>
+                    </p>
                     <p>
                       Test type: <span> PCR Test + Fit to Fly Certificate</span>
                     </p>
-                    <p>Number of tests: <span> 3 people</span></p>
+                    <p>
+                      Number of tests: <span> 3 people</span>
+                    </p>
                     <p>
                       Appointment Location:
                       <span> 14 Fernview Drive, Rammasbottom, BL0 9XB</span>
                     </p>
-                    <p>Amount Paid: <span> £300.00</span></p>
+                    <p>
+                      Amount Paid: <span> £300.00</span>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -156,8 +174,8 @@ const BookingCOmplete = () => {
           </div>
         </section>
       </div>
-        </div>
-    )
-}
+    </div>
+  );
+};
 
-export default BookingCOmplete
+export default BookingCOmplete;
