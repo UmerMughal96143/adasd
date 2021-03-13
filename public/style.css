@@ -110,7 +110,7 @@ body input,select:focus{
     font: normal normal normal 30px/1 FontAwesome;
     color: #1e9190;
     right: 11px;
-    top: 6px;
+    top: 3px;
     height: 34px;
     padding: 0px 5px 0px 8px;
     position: absolute;
@@ -200,7 +200,7 @@ body .white-logo{
     padding-left: 0px;
 }
 .travelling-tickets-wrapper .travelling-tickets-heading{
-    text-align: center;
+    text-align: left;
     margin-bottom: 30px;
 }
 .travelling-tickets-wrapper{
@@ -211,7 +211,7 @@ body .white-logo{
     border-radius: 12px;
     padding: 25px 15px;
     margin: 25px 0px;
-    width: fit-content;
+    width: 100%;
 }
 .travelling-tickets-box-right p{
     margin-bottom: 0px;
@@ -521,6 +521,9 @@ body #staticBackdrop{
 }
 /* Test-Location */
 /* Suggestion */
+.react-datepicker-wrapper{
+    width: 100%;
+}
 .suggestion-date-row .icon-input{
     width: 100%;
 }
@@ -955,7 +958,7 @@ body #staticBackdrop{
         padding: 0px;
     }
     .site-container{
-        width: 90%;
+        width: 95%;
         margin: 0 auto;
     }
     .flight-time-footer-buttons{

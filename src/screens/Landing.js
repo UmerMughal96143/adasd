@@ -36,16 +36,20 @@ const Landing = () => {
                        travelling but need a test
                     </h3>
                     <div class="d-flex travelling-tickets-content">
-                      <div class="col-8 travelling-tickets-box-right">
+                      <div class="col-7 travelling-tickets-box-right">
                         <p class="travelling-tickets-services">PCR Test</p>
                         <p class="travelling-tickets-confirmation-email">
                           (e-mail results confirmation)
                         </p>
                       </div>
-                      <div class="col-4 travelling-tickets-box-left">
-                        <div class="d-flex">
-                          <span>From</span>
-                          <h3 class="tickets-amount ml-auto">£66</h3>
+                      <div class="col-5 travelling-tickets-box-left pr-0">
+                        <div class="row m-0">
+                          <div className="col-6 p-0">
+                             <span>From</span> 
+                          </div>
+                          <div className="col-6 p-0">
+                              <h3 class="tickets-amount ml-auto">£66</h3>
+                          </div>
                         </div>
                         <Link to="/testlocation" onClick={() => dispatch(bookCovidTest('I am travelling but need a test'))}>
                           <button class="tickets-button" >Book</button>
@@ -64,16 +68,20 @@ const Landing = () => {
                       of the UK
                     </h3>
                     <div class="d-flex travelling-tickets-content">
-                      <div class="col-8 travelling-tickets-box-right">
+                      <div class="col-7 travelling-tickets-box-right">
                         <p class="travelling-tickets-services">PCR test</p>
                         <p class="travelling-tickets-confirmation-email">
                           (e-mail results confirmation)
                         </p>
                       </div>
-                      <div class="col-4 travelling-tickets-box-left">
-                        <div class="d-flex">
-                          <span>From</span>
-                          <h3 class="tickets-amount ml-auto">£66</h3>
+                      <div class="col-5 travelling-tickets-box-left pr-0">
+                      <div class="row m-0">
+                          <div className="col-6 p-0">
+                             <span>From</span> 
+                          </div>
+                          <div className="col-6 p-0">
+                              <h3 class="tickets-amount ml-auto">£66</h3>
+                          </div>
                         </div>
                         <Link to="/testlocation"  onClick={() => dispatch(bookCovidTest('I am travelling out of the UK'))}>
                           <button class="tickets-button">Book</button>
@@ -92,16 +100,20 @@ const Landing = () => {
                       in England
                     </h3>
                     <div class="d-flex travelling-tickets-content">
-                      <div class="col-8 travelling-tickets-box-right">
+                      <div class="col-7 travelling-tickets-box-right">
                         <p class="travelling-tickets-services">PCR Test</p>
                         <p class="travelling-tickets-confirmation-email">
                           (e-mail results confirmation)
                         </p>
                       </div>
-                      <div class="col-4 travelling-tickets-box-left">
-                        <div class="d-flex">
-                          <span>From</span>
-                          <h3 class="tickets-amount ml-auto">£66</h3>
+                      <div class="col-5 travelling-tickets-box-left pr-0">
+                      <div class="row m-0">
+                          <div className="col-6 p-0">
+                             <span>From</span> 
+                          </div>
+                          <div className="col-6 p-0">
+                              <h3 class="tickets-amount ml-auto">£66</h3>
+                          </div>
                         </div>
                         <Link to="/testlocation" onClick={() => dispatch(bookCovidTest('I am arriving in England'))}>
                           <button class="tickets-button">Book</button>

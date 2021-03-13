@@ -16,7 +16,7 @@ const BookingCOmplete = () => {
               <i class="fas fa-check-circle"></i>
             </div>
           </section>
-          <div class="site-container mb-4">
+        <div class="site-container mb-4">
         <section>
           <div class="Booking-Complete-wrapper">
             <div class="subheading">

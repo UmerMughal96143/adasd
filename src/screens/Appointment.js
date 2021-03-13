@@ -88,7 +88,7 @@ const Appointment = ({ history }) => {
               <input
                 type="text"
                 class="form-control"
-                placeholder="Postcode"
+                placeholder="Postal Code"
                 onChange={(e) => setPostCode(e.target.value)}
                 required
                 value={postcode.toUpperCase()}

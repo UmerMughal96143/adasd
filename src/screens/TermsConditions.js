@@ -28,7 +28,7 @@ const TermsConditions = ({history}) => {
           <h3>Terms and Conditions</h3>
         </div>
       </section>
-        <div class="site-container mb-4">
+        <div class="site-container mt-5 mb-4">
         <div className="wrapper">
           <section>
             <div class="Terms-Conditions-wrapper">
@@ -83,19 +83,21 @@ const TermsConditions = ({history}) => {
             </div>
           </section>
           <footer>
-              <div className="col-md-6 col-12">
-                <div className="row">
-                <div class="accept-turm-condition">
+          <div className="site-container">
+              <div className="col-md-8 col-12 ml-auto flight-time-footer-buttons p-0">
+                <div className="row m-0">
+                <div class="accept-turm-condition col-md-9 col-12 p-0">
                     <button class="Submit-to-checkout" onClick={(e) => proceedToSummaryHandler(e)}>
                       Accept and proceed to summary
                     </button>
                 </div>
-                <div class="back-btn-div">
+                <div class="back-btn-div col-md-3 col-12 pr-0">
                   <button type="submit" class="Back-btn">
                     Back
                   </button>
                 </div>
                 </div>
+              </div>
               </div>
           </footer>
         </div>

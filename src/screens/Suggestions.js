@@ -49,97 +49,103 @@ const Suggestions = ({history}) => {
     }
   };
   return (
-    <div class="site-container mb-4">
-      <section>
-        <div class="appointment-header">
-          <h4 class="appointment-heading">
-            Enter your flight times and let our clever system give you the best
-            option for your appointment time to ensure you get results back in
-            time for your flight
-          </h4>
-        </div>
-      </section>
-      <section>
-        <form class="appointment-form">
-          <p class="appointment-form-heading">What is your departure date?</p>
-          <div class="suggestion-date-row 1-100 row">
-            <div class="form-group w-100 col-12 site-input">
-              <DatePicker className="form-control"
-                selected={startDate}
-                onChange={(date) => setStartDate(date)}
-                onFocus={() => console.log('ha')}
-              />
+    <div>
+    <div className="wrapper">
+        <div class="site-container mb-4">
+          <section>
+            <div class="appointment-header">
+              <h4 class="appointment-heading">
+                Enter your flight times and let our clever system give you the best
+                option for your appointment time to ensure you get results back in
+                time for your flight
+              </h4>
             </div>
-          </div>
-          <div>
-            <p class="appointment-form-heading appointment-date-div">
-              What time if your flight?
-            </p>
-            <div class="selectdiv">
-              <select
-                onChange={(e) => oncFormCHangeHandler(e)}
-                name="flightTime"
-              >
-                <option>---Please Select your flight time---</option>
-                {flightTimes.map((fli) => {
-                  return <option>{fli}</option>;
-                })}
-              </select>
-            </div>
-          </div>
+          </section>
+          <section>
+            <form class="appointment-form">
+              <p class="appointment-form-heading">What is your departure date?</p>
+              <div class="suggestion-date-row 1-100 row">
+                <div class="form-group w-100 col-12 site-input">
+                  <DatePicker className="form-control"
+                    selected={startDate}
+                    onChange={(date) => setStartDate(date)}
+                    onFocus={() => console.log('ha')}
+                  />
+                </div>
+              </div>
+              <div>
+                <p class="appointment-form-heading appointment-date-div">
+                  What time if your flight?
+                </p>
+                <div class="selectdiv">
+                  <select
+                    onChange={(e) => oncFormCHangeHandler(e)}
+                    name="flightTime"
+                  >
+                    <option>---Please Select your flight time---</option>
+                    {flightTimes.map((fli) => {
+                      return <option>{fli}</option>;
+                    })}
+                  </select>
+                </div>
+              </div>
 
-          {flightTime && (
-            <div class="appointment-prosecer-steps">
-              <p class="appointment-prosecer-steps-subheading">
-                Please choose your preferred appointment time
-              </p>
-              <h3 class="appointment-prosecer-steps-mainheading">
-                Best choice
-              </h3>
-              <div class="suggest-best-time">
-                <button class="suggest-best-time-btn">
-                  <span>2pm - 4pm</span> {startDate.toString()}
-                </button>
-              </div>
-              <div class="user-choose">
-                <p class="user-choose-heading">You can also choose</p>
-                <div class="user-choose-box">
-                  <button class="user-choose-conent">
-                    6am - 8am Monday 12th March
-                  </button>
+              {flightTime && (
+                <div class="appointment-prosecer-steps">
+                  <p class="appointment-prosecer-steps-subheading">
+                    Please choose your preferred appointment time
+                  </p>
+                  <h3 class="appointment-prosecer-steps-mainheading">
+                    Best choice
+                  </h3>
+                  <div class="suggest-best-time">
+                    <button class="suggest-best-time-btn">
+                      <span>2pm - 4pm</span> {startDate.toString()}
+                    </button>
+                  </div>
+                  <div class="user-choose">
+                    <p class="user-choose-heading">You can also choose</p>
+                    <div class="user-choose-box">
+                      <button class="user-choose-conent">
+                        6am - 8am Monday 12th March
+                      </button>
+                    </div>
+                    <div class="user-choose-box">
+                      <button class="user-choose-conent">
+                        8am - 8am Monday 12th March
+                      </button>
+                    </div>
+                    <div class="user-choose-box">
+                      <button class="user-choose-conent">
+                        10am - 10am Monday 12th March
+                      </button>
+                    </div>
+                    <div class="user-choose-box">
+                      <button class="user-choose-conent">
+                        10am - 8am Monday 12th March
+                      </button>
+                    </div>
+                    <div class="user-choose-box">
+                      <button class="user-choose-conent">
+                        12am - 12am Monday 12th March
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                <div class="user-choose-box">
-                  <button class="user-choose-conent">
-                    8am - 8am Monday 12th March
-                  </button>
-                </div>
-                <div class="user-choose-box">
-                  <button class="user-choose-conent">
-                    10am - 10am Monday 12th March
-                  </button>
-                </div>
-                <div class="user-choose-box">
-                  <button class="user-choose-conent">
-                    10am - 8am Monday 12th March
-                  </button>
-                </div>
-                <div class="user-choose-box">
-                  <button class="user-choose-conent">
-                    12am - 12am Monday 12th March
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
-        <footer>
+              )}
+            </form>
+          </section>
+        </div>
+      </div>
+      <footer>
           <div class="site-container">
-            <div className="col-md-6 col-12 row ml-auto">
-              <div class="col-md-6 col-12 footer-btn pl-0">
+            <div className="pl-0 pr-0 col-md-6 col-12 row ml-auto flight-time-footer-buttons mt-0 mb-2 mr-0">
+              <div class="col-md-6 col-6 footer-btn">
                 <button type="submit" class="Back-btn">
                   Back
                 </button>
               </div>
-              <div class="col-md-6 col-12 footer-btn pr-0">
+              <div class="col-md-6 col-6 footer-btn pl-2 pr-0">
                 <Link to="/peoplebooking">
                   <button type="submit" class="Next-btn" onClick={(e) => submitFormHandler(e)}>
                     Continue
@@ -148,9 +154,7 @@ const Suggestions = ({history}) => {
               </div>
             </div>
           </div>
-          </footer>
-        </form>
-      </section>
+      </footer>
     </div>
   );
 };
