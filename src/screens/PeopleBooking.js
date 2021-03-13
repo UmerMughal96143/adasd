@@ -46,7 +46,7 @@ const PeopleBooking = ({ history }) => {
   const submitCheckout = (e) => {
     e.preventDefault();
     if (email) {
-      var validator = require("validator");
+      var validator = require("validator")
       console.log(validator.isEmail(email), "email validation");
       if (!validator.isEmail(email)) {
         errorNotification("Enter Valid Email");
@@ -82,6 +82,8 @@ const PeopleBooking = ({ history }) => {
       };
 
       dispatch(peopleBookingAction(data));
+      setNumberOfPersonsLimit(NumberOfPersonsLimit + 1);
+      localStorage.setItem('limit' , NumberOfPersonsLimit)
       history.push("/termsconditions");
     } else {
       if (!firstName || !lastName || !dob || !sex) {
@@ -175,6 +177,7 @@ const PeopleBooking = ({ history }) => {
       });
       setSex("---Please Select your sex---");
       setNumberOfPersonsLimit(NumberOfPersonsLimit + 1);
+      localStorage.setItem('limit' , NumberOfPersonsLimit + 1)
       setCheckBoxStatus(false);
       window.scrollTo(0, 0);
     } else {
@@ -213,6 +216,8 @@ const PeopleBooking = ({ history }) => {
       }
     }
   };
+  var a = 1 ;
+  let limit =  localStorage.getItem('limit') + a
 
   useEffect(() => {
     if (checkboxStatus) {
@@ -230,7 +235,9 @@ const PeopleBooking = ({ history }) => {
       });
       setSex(peoplesData[0].sex);
     }
+    
   }, [checkboxStatus]);
+ 
 
   return (
     <div class="container-fluid mb-4">
@@ -242,7 +249,7 @@ const PeopleBooking = ({ history }) => {
           </p>
           <button class="passenger-btn">
             Person{" "}
-            {`${NumberOfPersonsLimit} of ${localStorage.getItem(
+            {`${ NumberOfPersonsLimit}  of ${localStorage.getItem(
               "numberOfUsers"
             )}`}
             {/* {NumberOfPersonsLimit  {"of"} {localStorage.getItem("numberOfUsers")} } */}
