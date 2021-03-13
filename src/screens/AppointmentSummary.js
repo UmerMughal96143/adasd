@@ -29,7 +29,7 @@ const AppointmentSummary = ({history}) => {
 
   const personRemoveHandler = (id) => {
 
-    // dispatch(removePersons(id))
+    dispatch(removePersons(id))
 
   }
   return (
@@ -45,18 +45,7 @@ const AppointmentSummary = ({history}) => {
           </p>
         </div>
       </section>
-      <section class="Appointment-Summary">
-        <div class="Test-Location-box">
-          <h3>Appointment Summary</h3>
-        </div>
-        <div class="breaking-news-box">
-          <h4 class="breaking-news">PCR Fit to Fly</h4>
-          <p class="breaking-news-dec">
-            You are booking for 3 people 12th February 2021 between 8am - 4pm
-          </p>
-        </div>
-      </section>
-      <div class="container-fluid mb-4">
+      <div class="site-container mt-5 mb-4">
         <section>
           <div class="Payment-Details-wrapper">
             <div class="mini-heading">
@@ -82,10 +71,27 @@ const AppointmentSummary = ({history}) => {
                             <i class="fas fa-pen"></i>
                           </div>
                         </div>
-                        <div class="col-6">
-                          <button type="submit" class="remove-btn" onClick={() => personRemoveHandler(data.Person)}>
-                            Remove
-                          </button>
+                        <div class="col-6 Remove-appointment-modle">
+                          <button type="button" class="remove-btn " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                              Remove
+                        </button>
+                    
+                    {/* <!-- Modal --> */}
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <p>
+                                    Are you sure you what to remove <br /> "jammer smith" from the appointment ?
+                                </p>
+                                <div class="Appointment-model-footer-btns">
+                                    <button type="button" class="btn mr-1" onClick={(e) => personRemoveHandler(e)}>YES</button>
+                                    <button type="button" class="btn ml-1" data-bs-dismiss="modal">NO</button>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
                         </div>
                       </div>
                       <div class="Person-details-info">
@@ -118,7 +124,7 @@ const AppointmentSummary = ({history}) => {
       </div>
       <section>
         <div class="amount-due">
-          <div class="container-fluid">
+          <div class="container-fluid site-container">
             <div class="row">
               <div class="col-6 amount-due-text">
                 <h3>Amount due</h3>
@@ -130,7 +136,7 @@ const AppointmentSummary = ({history}) => {
           </div>
         </div>
       </section>
-      <section>
+      <section className="site-container">
         <div class="amount-due-points">
           <label>
             <input type="checkbox" onChange={(e) => setCondition1(e.target.checked)}/>
@@ -154,15 +160,7 @@ const AppointmentSummary = ({history}) => {
                     <!-- Button trigger modal --> */}
             <button
               type="button"
-              class="Submit-to-checkout"
-              
-              onClick={(e) => proceedToSummaryHandler(e)}
-            >
-              Continue to Payment
-            </button>
-            {
-
-            }
+              class="Submit-to-checkout" onClick={(e) => proceedToSummaryHandler(e)} > Continue to Payment  </button>
 
             <div
               class="modal fade"
