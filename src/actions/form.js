@@ -40,3 +40,11 @@ console.log("🚀 ~ file: form.js ~ line 34 ~ peopleBookingAction ~ data", data)
 
   } catch (error) {}
 };
+
+export const removePersons = (data) => async (dispatch) => {
+    
+    try {
+      dispatch({ type: "REMOVE_PERSON", payload: data });
+  
+    } catch (error) {}
+  };

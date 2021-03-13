@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { errorNotification } from "../utils/notification";
+import {removePersons} from '../actions/form'
 
 const AppointmentSummary = ({history}) => {
   const { peoplesData } = useSelector((state) => state.Form);
   const [condition1 , setCondition1] = useState(false)
   const [condition2 , setCondition2] = useState(false)
+  const [modal , setModal] = useState(false)
+
+  const dispatch = useDispatch();
 
 
   const proceedToSummaryHandler = (e) => {
@@ -16,6 +20,17 @@ const AppointmentSummary = ({history}) => {
       return
     }
     history.push('/paymentdetails')
+  }
+
+  if(peoplesData){
+    localStorage.setItem('peoples' , JSON.stringify(peoplesData))
+  }
+
+
+  const personRemoveHandler = (id) => {
+
+    // dispatch(removePersons(id))
+
   }
   return (
     <div>
@@ -68,7 +83,7 @@ const AppointmentSummary = ({history}) => {
                           </div>
                         </div>
                         <div class="col-6">
-                          <button type="submit" class="remove-btn">
+                          <button type="submit" class="remove-btn" onClick={() => personRemoveHandler(data.Person)}>
                             Remove
                           </button>
                         </div>
@@ -145,6 +160,9 @@ const AppointmentSummary = ({history}) => {
             >
               Continue to Payment
             </button>
+            {
+
+            }
 
             <div
               class="modal fade"
@@ -174,6 +192,10 @@ const AppointmentSummary = ({history}) => {
                 </div>
               </div>
             </div>
+
+
+
+
           </div>
           <div class="back-btn-div">
             <button type="submit" class="Back-btn">

@@ -36,12 +36,12 @@ export const Form = (state = iniitialState, action) => {
       };
 
     case "ADDRESS_APPOINMENT":
-      let addressAppointment = {
-        testLocation: action.payload,
-      };
+      // let addressAppointment = {
+      //   testLocation: action.payload,
+      // };
       localStorage.setItem(
         "form",
-        JSON.stringify([...state.data, addressAppointment])
+        JSON.stringify([...state.data, action.payload])
       );
       return {
         ...state,
@@ -65,6 +65,13 @@ export const Form = (state = iniitialState, action) => {
       return {
         ...state,
         peoplesData: [...state.peoplesData, action.payload],
+      };
+    case "REMOVE_PERSON":
+      return {
+        ...state,
+        peoplesData: [
+          ...state.peoplesData.filter((fil) => fil.Person !== action.payload),
+        ],
       };
     default:
       return {
