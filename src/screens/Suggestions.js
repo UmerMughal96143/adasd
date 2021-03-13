@@ -67,6 +67,7 @@ const Suggestions = ({history}) => {
               <DatePicker
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
+                onFocus={() => console.log('ha')}
               />
             </div>
           </div>

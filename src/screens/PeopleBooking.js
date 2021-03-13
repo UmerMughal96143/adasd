@@ -34,7 +34,6 @@ const PeopleBooking = ({ history }) => {
   const dispatch = useDispatch();
   const [sex, setSex] = useState("");
   const [checkboxStatus, setCheckBoxStatus] = useState(false);
-  console.log("🚀 ~ file: PeopleBooking.js ~ line 37 ~ PeopleBooking ~ checkboxStatus", checkboxStatus)
   const [NumberOfPersonsLimit, setNumberOfPersonsLimit] = useState(1);
   const onChangeFormHandler = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -46,6 +45,14 @@ const PeopleBooking = ({ history }) => {
 
   const submitCheckout = (e) => {
     e.preventDefault();
+    if (email) {
+      var validator = require("validator");
+      console.log(validator.isEmail(email), "email validation");
+      if (!validator.isEmail(email)) {
+        errorNotification("Enter Valid Email");
+        return;
+      }
+    }
     if (
       firstName &&
       lastName &&
@@ -114,6 +121,14 @@ const PeopleBooking = ({ history }) => {
 
   const nextPersonHandler = (e) => {
     e.preventDefault();
+    if (email) {
+      var validator = require("validator");
+      console.log(validator.isEmail(email), "email validation");
+      if (!validator.isEmail(email)) {
+        errorNotification("Enter Valid Email");
+        return;
+      }
+    }
     if (
       firstName &&
       lastName &&
@@ -161,6 +176,7 @@ const PeopleBooking = ({ history }) => {
       setSex("---Please Select your sex---");
       setNumberOfPersonsLimit(NumberOfPersonsLimit + 1);
       setCheckBoxStatus(false);
+      window.scrollTo(0, 0);
     } else {
       if (!firstName || !lastName || !dob || !sex) {
         errorNotification("Fill Required Fields");
@@ -174,6 +190,7 @@ const PeopleBooking = ({ history }) => {
         errorNotification("Enter Email");
         return;
       }
+
       if (email !== confirmEmail) {
         errorNotification("Email does not match");
         return;
@@ -304,7 +321,7 @@ const PeopleBooking = ({ history }) => {
             <div class="form-group col-md-6">
               <label for="inputCity">EmaiL*</label>
               <input
-                type="emai"
+                type="email"
                 class="form-control"
                 onChange={(e) => onChangeFormHandler(e)}
                 name="email"
@@ -391,15 +408,11 @@ const PeopleBooking = ({ history }) => {
               </>
             )}
 
-            {NumberOfPersonsLimit == localStorage.getItem("numberOfUsers") ? (
-              <div class="col-12" onClick={(e) => submitCheckout(e)}>
-                <button class="Submit-to-checkout">
-                  Submit and go to checkout
-                </button>
-              </div>
-            ) : (
-              ""
-            )}
+            <div class="col-12" onClick={(e) => submitCheckout(e)}>
+              <button class="Submit-to-checkout">
+                Submit and go to checkout
+              </button>
+            </div>
           </div>
         </form>
       </section>

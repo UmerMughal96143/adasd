@@ -16,17 +16,12 @@ const Appointment = ({ history }) => {
 
   const [postcode, setPostCode] = useState("");
 
-  const [townCity, setTownCity] = useState("");
-
   const dispatch = useDispatch();
 
   let finalAddressArray = [];
 
-  console.log("object", townCity.town + townCity.traditional_county);
-
   useEffect(() => {
     if (addressResult.delivery_points) {
-      console.log("asdjkasdjkasd", townCity.town + townCity.traditional_county);
       finalAddressArray = addressResult.delivery_points.map((add) => ({
         ...add,
         townCity: addressResult.town + addressResult.traditional_county,
@@ -94,6 +89,7 @@ const Appointment = ({ history }) => {
                 placeholder="Postcode"
                 onChange={(e) => setPostCode(e.target.value)}
                 required
+                value={postcode.toUpperCase()}
               />
             </div>
             <div class="form-group col-md-7 col-5 Find-Address-btn">
