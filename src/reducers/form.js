@@ -6,6 +6,7 @@ const iniitialState = {
   peoplesData: localStorage.getItem("peoples")
     ? JSON.parse(localStorage.getItem("peoples"))
     : [],
+  editMan: null,
 };
 
 export const Form = (state = iniitialState, action) => {
@@ -73,6 +74,26 @@ export const Form = (state = iniitialState, action) => {
           ...state.peoplesData.filter((fil) => fil.Person !== action.payload),
         ],
       };
+    case "SEARCH_PERSON_FOR_EDIT":
+      let editPersonFounded = state.peoplesData.find(
+        (f) => f.id == action.payload
+      );
+      return {
+        ...state,
+        editMan: editPersonFounded,
+      };
+
+    case "UPDATE_PERSON":
+      var newData = state.peoplesData.map(el => {
+        if(el.id == action.payload.id)
+           return Object.assign({}, el, action.payload)
+        return el
+    });
+      console.log("🚀 ~ file: form.js ~ line 92 ~ Form ~ newData", newData)
+      return{
+        ...state,
+      }
+      
     default:
       return {
         ...state,

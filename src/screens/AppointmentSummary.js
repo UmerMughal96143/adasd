@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { errorNotification } from "../utils/notification";
-import { removePersons } from "../actions/form";
+import { removePersons, searchPersonForEdit } from "../actions/form";
 import Modall from "../components/Modal";
 import { Link } from "react-router-dom";
 
@@ -34,6 +34,12 @@ const AppointmentSummary = ({ history }) => {
     );
     dispatch(removePersons(id));
   };
+
+
+  const editHandler = (id) => {
+    dispatch(searchPersonForEdit(id))
+    history.push('/peoplebooking')
+  }
   return (
     <div>
       <section class="Appointment-Summary">
@@ -71,7 +77,7 @@ const AppointmentSummary = ({ history }) => {
                         <div class="col-6">
                           <div class="person-heading-icon">
                             <h3 class="person-heading">Details</h3>
-                            <i class="fas fa-pen"></i>
+                            <i class="fas fa-pen" onClick={() => editHandler(data.id)}></i>
                           </div>
                         </div>
                         <div class="col-6 Remove-appointment-modle">

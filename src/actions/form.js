@@ -48,3 +48,21 @@ export const removePersons = (data) => async (dispatch) => {
   
     } catch (error) {}
   };
+
+
+  
+export const searchPersonForEdit = (id) => async (dispatch) => {
+    
+  try {
+    dispatch({ type: "SEARCH_PERSON_FOR_EDIT", payload: id });
+
+  } catch (error) {}
+};
+
+export const updatePersonAction = (id) => async (dispatch) => {
+    
+  try {
+    dispatch({ type: "UPDATE_PERSON", payload: id });
+
+  } catch (error) {}
+};
