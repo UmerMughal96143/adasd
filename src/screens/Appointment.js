@@ -8,6 +8,9 @@ import { errorNotification } from "../utils/notification";
 const Appointment = ({ history }) => {
   const [addressResult, setAddressResult] = useState("");
   const [dropDownAddress, setDropdownAddress] = useState("");
+  const [isDropDownAddressSelected, setIsDropDownAddressSelected] = useState(
+    false
+  );
   const [isAddressSuccess, setAddressSuccess] = useState(false);
 
   const [numberOfPeoples, setNumberOfPeoples] = useState("");
@@ -30,7 +33,6 @@ const Appointment = ({ history }) => {
       setFinalAddressArray(finalAddressArray);
     }
     window.scrollTo(0, 0);
-
   }, [addressResult]);
 
   let numberOfPeoplesData = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
@@ -107,7 +109,10 @@ const Appointment = ({ history }) => {
           {isAddressSuccess && (
             <div class="selectdiv">
               <select
-                onChange={(e) => setDropdownAddress(e.target.value)}
+                onChange={(e) => {
+                  setDropdownAddress(e.target.value);
+                  setIsDropDownAddressSelected(true);
+                }}
                 required
               >
                 <option>---Please Select your address---</option>
@@ -121,6 +126,20 @@ const Appointment = ({ history }) => {
                     );
                   })}
               </select>
+            </div>
+          )}
+
+          {isDropDownAddressSelected && (
+            <div class="appointment-user-address-row row">
+              <div class="form-group col-8">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Address"
+                  value={dropDownAddress.toUpperCase()}
+                  onChange={(e) => setDropdownAddress(e.target.value)}
+                />
+              </div>
             </div>
           )}
 
