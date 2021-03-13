@@ -18,6 +18,25 @@
     font-family: "Poppins-Regular";
     src: url(asstes/Poppins/Poppins-Regular.ttf);
 }
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    color: white;
+    text-align: center;
+    padding: 20px 0px;
+}
+.wrapper{
+    margin-bottom: 100px;
+}
+button:active{
+    outline: none !important;
+}
+.row{
+    align-items: baseline;
+}
 header{
     position: sticky;
     z-index: 9;
@@ -52,6 +71,7 @@ body input,select:focus{
     padding: 5px 0px 0px 8px;
     position: absolute;
     pointer-events: none;
+    background-color: white;
   }
   
   select::-ms-expand {
@@ -306,9 +326,6 @@ body .white-logo{
     width: 100%;
     padding: 10px 0px;
     background-color: white;
-}
-.form_buttons{
-    margin-top: 30px;
 }
 form label{
     font-family: "Poppins-Medium";
@@ -667,13 +684,10 @@ body #staticBackdrop{
 .Appointment-Summary .breaking-news-box{
     margin: 2px 0px;
 }
-.mini-heading{
-    text-align: center;
-}
 .mini-heading p{
     font-family: "Poppins-Bold";
     font-size: 16px;  
-    text-align: center;
+    text-align: left;
 }
 .person-heading{
     font-family: "Poppins-Bold";

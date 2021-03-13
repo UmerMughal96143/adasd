@@ -62,9 +62,9 @@ const Suggestions = ({history}) => {
       <section>
         <form class="appointment-form">
           <p class="appointment-form-heading">What is your departure date?</p>
-          <div class="suggestion-date-row row">
-            <div class="form-group col-12 site-input">
-              <DatePicker
+          <div class="suggestion-date-row 1-100 row">
+            <div class="form-group w-100 col-12 site-input">
+              <DatePicker className="form-control"
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
                 onFocus={() => console.log('ha')}
@@ -131,8 +131,8 @@ const Suggestions = ({history}) => {
               </div>
             </div>
           )}
-
-          <div class="row form_buttons flight-time-footer-buttons">
+        <footer>
+          <div class="site-container">
             <div className="col-md-6 col-12 row ml-auto">
               <div class="col-md-6 col-12 footer-btn pl-0">
                 <button type="submit" class="Back-btn">
@@ -148,6 +148,7 @@ const Suggestions = ({history}) => {
               </div>
             </div>
           </div>
+          </footer>
         </form>
       </section>
     </div>
