@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { errorNotification } from "../utils/notification";
 import { removePersons } from "../actions/form";
 import Modall from "../components/Modal";
+import { Link } from "react-router-dom";
 
 const AppointmentSummary = ({ history }) => {
   const { peoplesData } = useSelector((state) => state.Form);
@@ -27,8 +28,11 @@ const AppointmentSummary = ({ history }) => {
   }
 
   const personRemoveHandler = (id) => {
-  console.log("🚀 ~ file: AppointmentSummary.js ~ line 30 ~ personRemoveHandler ~ id", id)
-    dispatch(removePersons(id))
+    console.log(
+      "🚀 ~ file: AppointmentSummary.js ~ line 30 ~ personRemoveHandler ~ id",
+      id
+    );
+    dispatch(removePersons(id));
   };
   return (
     <div>
@@ -86,7 +90,9 @@ const AppointmentSummary = ({ history }) => {
                             <Modall
                               showModal={true}
                               closeModal={() => setModal(false)}
-                              personRemoveHandler={() =>  personRemoveHandler(data.Person)}
+                              personRemoveHandler={() =>
+                                personRemoveHandler(data.Person)
+                              }
                             />
                           )}
                         </div>
@@ -113,7 +119,9 @@ const AppointmentSummary = ({ history }) => {
               })}
 
               <div class="add-person">
-                <button class="add-person-btn">+ Add another person</button>
+                <Link to='/peoplebooking'>
+                  <button class="add-person-btn">+ Add another person</button>
+                </Link>
               </div>
             </div>
           </div>

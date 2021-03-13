@@ -5,15 +5,13 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch } from "react-redux";
 import { suggestions } from "../actions/form";
 import { errorNotification } from "../utils/notification";
+import Time from "../components/Time";
 
-
-const Suggestions = ({history}) => {
-  const [formData, setFormData] = useState({
-    flightTime: "",
-  });
-  const {flightTime} = formData
+const Suggestions = ({ history }) => {
+ const [flightTime , setFlightTime] = useState('')
+ console.log("🚀 ~ file: Suggestions.js ~ line 12 ~ Suggestions ~ flightTime", flightTime)
   const [startDate, setStartDate] = useState(new Date());
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   let flightTimes = [
     "1am - 3am",
@@ -30,23 +28,24 @@ const Suggestions = ({history}) => {
     "11pm - 1am",
   ];
 
-
-  const oncFormCHangeHandler = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+ 
 
   const submitFormHandler = (e) => {
     e.preventDefault();
-    if(flightTime && startDate){
+    if (flightTime && startDate) {
       let data = {
         flightTime,
-        startDate
-      }
-      dispatch(suggestions(data))
-      history.push('/peoplebooking')
-    }else{
-      errorNotification('Please fill All fields')
+        startDate,
+      };
+      dispatch(suggestions(data));
+      history.push("/peoplebooking");
+    } else {
+      errorNotification("Please fill All fields");
     }
+  };
+
+  const valueFromPicker = (data) => {
+    setFlightTime(data)
   };
   return (
     <div class="site-container mb-4">
@@ -67,11 +66,11 @@ const Suggestions = ({history}) => {
               <DatePicker
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
-                onFocus={() => console.log('ha')}
+                onFocus={() => console.log("ha")}
               />
             </div>
           </div>
-          <div>
+          {/* <div>
             <p class="appointment-form-heading appointment-date-div">
               What time if your flight?
             </p>
@@ -85,6 +84,14 @@ const Suggestions = ({history}) => {
                   return <option>{fli}</option>;
                 })}
               </select>
+            </div>
+          </div> */}
+          <div>
+            <p class="appointment-form-heading appointment-date-div">
+              What time if your flight?
+            </p>
+            <div class="selectdiv">
+              <Time valueFromPicker={valueFromPicker} />
             </div>
           </div>
 
@@ -141,7 +148,11 @@ const Suggestions = ({history}) => {
               </div>
               <div class="col-md-6 col-12 footer-btn pr-0">
                 <Link to="/peoplebooking">
-                  <button type="submit" class="Next-btn" onClick={(e) => submitFormHandler(e)}>
+                  <button
+                    type="submit"
+                    class="Next-btn"
+                    onClick={(e) => submitFormHandler(e)}
+                  >
                     Continue
                   </button>
                 </Link>
