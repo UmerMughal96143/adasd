@@ -14,7 +14,7 @@ const TestLocation = () => {
           <h3>Test Location</h3>
         </div>
       </section>
-      <div class="container-fluid mb-4">
+      <div class="site-container mb-4">
         <section>
           <div class="Location-block-wrapper">
             <div class="Location-box">
@@ -84,7 +84,7 @@ const TestLocation = () => {
                   aria-labelledby="staticBackdropLabel"
                   aria-hidden="true"
                 >
-                  <div class="modal-dialog">
+                  <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header border-0">
                         <h5 class="modal-title" id="staticBackdropLabel">

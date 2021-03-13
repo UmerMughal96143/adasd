@@ -257,6 +257,7 @@ const PeopleBooking = ({ history }) => {
         </div>
         {peoplesData[0] && (
           <div class="people-booking-copy-dedail-person">
+          <div className="site-container">
             <label>
               <input
                 type="checkbox"
@@ -265,13 +266,16 @@ const PeopleBooking = ({ history }) => {
               />
               <h3>Copy contact details from person 1</h3>
             </label>
+            </div>
           </div>
         )}
       </section>
       <section>
+      <div className="wrapper">
+      <div className="site-container mb-4">
         <form>
           <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-12">
               <label for="inputEmail4">First name*</label>
               <input
                 type="text"
@@ -281,8 +285,8 @@ const PeopleBooking = ({ history }) => {
                 value={firstName}
               />
             </div>
-            <div class="form-group col-md-6">
-              <label for="inputPassword4">last name*</label>
+            <div class="form-group col-md-12">
+              <label for="inputPassword4">Last name*</label>
               <input
                 type="text"
                 class="form-control"
@@ -314,7 +318,8 @@ const PeopleBooking = ({ history }) => {
             </div>
           </div>
           <div>
-            <label for="inputAddress"> Ehitinicity*</label>
+          <div className=" mt-3">
+          <label for="inputAddress"> Ehitinicity*</label>
             <div class="selectdiv">
               <select onChange={(e) => setSex(e.target.value)} value={sex}>
                 <option>---Please Select your sex---</option>
@@ -323,10 +328,11 @@ const PeopleBooking = ({ history }) => {
                 })}
               </select>
             </div>
+            </div>
           </div>
           <div class="form-row mt-4">
-            <div class="form-group col-md-6">
-              <label for="inputCity">EmaiL*</label>
+            <div class="form-group col-md-12">
+              <label for="inputCity">Email*</label>
               <input
                 type="email"
                 class="form-control"
@@ -338,8 +344,8 @@ const PeopleBooking = ({ history }) => {
             {/* <div class="drive-gide people-email-booking">
               <p>Your results will be Sent to you via email</p>
             </div> */}
-            <div class="form-group col-md-4">
-              <label for="inputCity">Confirm email*</label>
+            <div class="form-group col-md-12">
+              <label for="inputCity">Confirm Email*</label>
               <input
                 type="emai"
                 class="form-control"
@@ -348,7 +354,7 @@ const PeopleBooking = ({ history }) => {
                 value={confirmEmail}
               />
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-12">
               <label for="inputCity">Mobile Number*</label>
               <input
                 type="emai"
@@ -361,7 +367,7 @@ const PeopleBooking = ({ history }) => {
             {/* <div class="drive-gide people-email-booking">
               <p>Your results will be Sent to you via email</p>
             </div> */}
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-12">
               <label for="inputCity">Confirm Mobile Number*</label>
               <input
                 type="emai"
@@ -371,7 +377,7 @@ const PeopleBooking = ({ history }) => {
                 value={confirmMobile}
               />
             </div>
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-12">
               <label for="inputZip">Passport/ID card number*</label>
               <input
                 type="text"
@@ -382,9 +388,8 @@ const PeopleBooking = ({ history }) => {
               />
             </div>
           </div>
-          <div class="form-group Confirm-passport col-md-2">
-            <label for="inputZip">Confirm passport/ID card number*</label>
-            passportIdCard
+          <div class="form-group Confirm-passport col-md-12 p-0">
+            <label for="inputZip">Confirm Passport/ID card number*</label>
             <input
               type="text"
               class="form-control"
@@ -393,35 +398,46 @@ const PeopleBooking = ({ history }) => {
               value={confIrmpassportIdCard}
             />
           </div>
-          <div class="row form_buttons user-detail-footer-btns">
-            {NumberOfPersonsLimit == localStorage.getItem("numberOfUsers") ? (
-              ""
-            ) : (
-              <>
-                <div class="col-6">
-                  <button type="submit" class="Back-btn">
-                    Back
-                  </button>
-                </div>
-                <div class="col-6">
-                  <button
-                    type="submit"
-                    onClick={(e) => nextPersonHandler(e)}
-                    class="Next-btn"
-                  >
-                    Next Person
-                  </button>
-                </div>
-              </>
-            )}
-
-            <div class="col-12" onClick={(e) => submitCheckout(e)}>
-              <button class="Submit-to-checkout">
-                Submit and go to checkout
-              </button>
-            </div>
-          </div>
+         
+          
         </form>
+        </div>
+      </div>
+      <footer>
+              <div className="site-container">
+                <div class="col-md-6 col-12 p-0 form_buttons user-detail-footer-btns ml-auto mt-0 mb-2">
+                  <div className="row">
+                    {NumberOfPersonsLimit == localStorage.getItem("numberOfUsers") ? (
+                      ""
+                    ) : (
+                      <>
+                        <div class="col-6">
+                          <button type="submit" class="Back-btn">
+                            Back
+                          </button>
+                        </div>
+                        <div class="col-6">
+                          <button
+                            type="submit"
+                            onClick={(e) => nextPersonHandler(e)}
+                            class="Next-btn"
+                          >
+                            Next Person
+                          </button>
+                        </div>
+                      </>
+                    )}
+
+                    <div class="col-12" onClick={(e) => submitCheckout(e)}>
+                      <button class="Submit-to-checkout">
+                        Submit and go to checkout
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </footer>
+        
       </section>
     </div>
   );

@@ -36,6 +36,7 @@ const PaymentDetails = ({ history }) => {
           <h3>Payment Details</h3>
         </div>
       </section>
+      <div className="wrapper">
       <div class="site-container mt-5 mb-4">
         <section>
           <div class="Payment-Details-wrapper">
@@ -100,28 +101,28 @@ const PaymentDetails = ({ history }) => {
                     <p>14 Fernview Drive, Ramsbottom, BL0 9XB UK, England.</p>
                   </div>
                 </div>
-                <div className="row form_buttons flight-time-footer-buttons">
-                  <div className="col-md-6 col-12 row ml-auto">
-                    {/* <div class="col-md-4 col-12 back-btn-div pl-0">
-                      <button type="submit" class="Back-btn">
-                        Back
-                      </button>
-                    </div> */}
-                    <div class="col-md-8 col-12 accept-turm-condition pr-0">
-                      <button
-                        class="Submit-to-checkout"
-                        onClick={paymentHandler}
-                      >
-                        Complete Payment
-                      </button>
-                    </div>
-                  </div>
-                </div>
               </form>
             </div>
           </div>
         </section>
       </div>
+      </div>
+      <footer>
+      <div className="site-container">
+          <div className="row form_buttons flight-time-footer-buttons">
+            <div className="col-md-6 col-12 row ml-auto">
+                  <div class="col-md-7 col-12 ml-auto pr-0">
+                    <button
+                      class="Submit-to-checkout"
+                      onClick={paymentHandler}
+                    >
+                      Complete Payment
+                    </button>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </footer>     
     </div>
   );
 };

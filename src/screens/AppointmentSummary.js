@@ -47,6 +47,7 @@ const AppointmentSummary = ({ history }) => {
           </p>
         </div>
       </section>
+      <div className="wrapper">
       <div class="site-container mt-5 mb-4">
         <section>
           <div class="Payment-Details-wrapper">
@@ -165,56 +166,29 @@ const AppointmentSummary = ({ history }) => {
             </p>
           </label>
         </div>
-        <div class="Appointment-modle-footer">
-          <div class="accept-turm-condition">
-            {/* <!-- <button class="Submit-to-checkout">Continue to Payment</button> -->
-                    <!-- Button trigger modal --> */}
-            <button
-              type="button"
-              class="Submit-to-checkout"
-              onClick={(e) => proceedToSummaryHandler(e)}
-            >
-              {" "}
-              Continue to Payment{" "}
-            </button>
-
-            {/* <div
-              class="modal fade"
-              id="staticBackdrop"
-              data-bs-backdrop="static"
-              data-bs-keyboard="false"
-              tabindex="-1"
-              aria-labelledby="staticBackdropLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-body">
-                    <p>
-                      Are you sure you what to remove <br /> "jammer smith" from
-                      the appointment ?
-                    </p>
-                    <div class="Appointment-model-footer-btns">
-                      <button type="button" class="btn">
-                        YES
-                      </button>
-                      <button type="button" class="btn" data-bs-dismiss="modal">
-                        NO
-                      </button>
-                    </div>
-                  </div>
-                </div>
+        
+      </section>
+      </div>
+      <footer>
+        <div className="site-container form_buttons flight-time-footer-buttons">
+          <div class="Appointment-modle-footer col-md-6 col-12 ml-auto">
+            <div className="row">
+              <div class="accept-turm-condition col-md-8 col-12 footer-btn pl-0">
+                <button
+                  type="button"
+                  class="Submit-to-checkout" onClick={(e) => proceedToSummaryHandler(e)} > Continue to Payment  </button>
               </div>
-            </div> */}
-          </div>
-          <div class="back-btn-div">
-            <button type="submit" class="Back-btn">
-              Back
-            </button>
+              <div class="back-btn-div col-md-4 col-12 footer-btn pr-0">
+                <button type="submit" class="Back-btn">
+                  Back
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+        </footer>
     </div>
+    
   );
 };
 
