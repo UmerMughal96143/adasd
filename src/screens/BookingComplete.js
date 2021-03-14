@@ -5,10 +5,10 @@ const BookingCOmplete = () => {
   const ref = React.createRef();
 
   const options = {
-    orientation: 'landscape',
-    unit: 'in',
-    format: [4,2]
-};
+    orientation: "landscape",
+    unit: "in",
+    format: [4, 2],
+  };
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -28,7 +28,7 @@ const BookingCOmplete = () => {
             <div class="subheading">
               <p>Appointment Confirmation</p>
               <div class="Save-PDF">
-                <Pdf targetRef={ref} filename="flight.pdf" >
+                <Pdf targetRef={ref} filename="flight.pdf">
                   {({ toPdf }) => (
                     <button type="submit" class="Save-PDF-btn" onClick={toPdf}>
                       <i class="fas fa-file-pdf"></i> Save booking confirmation

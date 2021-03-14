@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { suggestions } from "../actions/form";
 import { errorNotification } from "../utils/notification";
 import Time from "../components/Time";
+import Date from "../components/Date";
 
 const Suggestions = ({ history }) => {
   const [flightTime, setFlightTime] = useState("");
@@ -67,13 +68,14 @@ const Suggestions = ({ history }) => {
                 What is your departure date?
               </p>
               <div class="suggestion-date-row row">
-                <div class="form-group col-12 site-input">
+                {/* <div class="form-group col-12 site-input">
                   <DatePicker
                     selected={startDate}
                     onChange={(date) => setStartDate(date)}
                     onFocus={() => console.log("ha")}
                   />
-                </div>
+                </div> */}
+                <Date/>
               </div>
               {/* <div>
             <p class="appointment-form-heading appointment-date-div">

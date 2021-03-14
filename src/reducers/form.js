@@ -84,12 +84,15 @@ export const Form = (state = iniitialState, action) => {
       };
 
     case "UPDATE_PERSON":
-      var foundIndex = state.peoplesData.findIndex((x) => x.id == action.payload.id);
+      var foundIndex = state.peoplesData.findIndex(
+        (x) => x.id == action.payload.id
+      );
       state.peoplesData[foundIndex] = action.payload;
-      return{
+      return {
         ...state,
-      }
-      
+        editMan: null,
+      };
+
     default:
       return {
         ...state,
