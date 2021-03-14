@@ -14,7 +14,6 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "formik": "^2.2.6",
-    "jspdf": "^2.3.1",
     "moment-range": "^4.0.2",
     "rc-time-picker": "^3.7.3",
     "react": "^17.0.1",
