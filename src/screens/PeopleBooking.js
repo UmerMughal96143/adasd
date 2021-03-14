@@ -3,8 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { errorNotification } from "../utils/notification";
 import { peopleBookingAction, updatePersonAction } from "../actions/form";
+import { Formik } from "formik";
+import * as Yup from "yup";
 
 const PeopleBooking = ({ history }) => {
+  const [isValidSubmitCheckout , setIsValidSubmitCheckout] = useState(false)
+  console.log("🚀 ~ file: PeopleBooking.js ~ line 11 ~ PeopleBooking ~ isValidSubmitCheckout", isValidSubmitCheckout)
+  const [isValidNextPerson , setIsValidNextPerson] = useState(false)
+  console.log("🚀 ~ file: PeopleBooking.js ~ line 12 ~ PeopleBooking ~ isValidNextPerson", isValidNextPerson)
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -322,222 +328,374 @@ const PeopleBooking = ({ history }) => {
     }
   }, [editMan]);
 
+  useEffect(() => {
+    if(isValidSubmitCheckout){
+      console.log('Submit To Checkout ')
+    }
+  }, [isValidSubmitCheckout])
+
+  useEffect(() => {
+    if(isValidNextPerson){
+      console.log('NextPerson ')
+    }
+  }, [isValidNextPerson])
+
   return (
     <div class="container-fluid mb-4 p-0">
-      <section>
-        <div class="flite-time">
-          <h4 class="PRC-flite-heading">PCR Fit to Fly</h4>
-          <p class="PRC-flite-dec">
-            You are booking for 3 people <br /> 12th February 2021 between 8am - 4pm
-          </p>
-          {localStorage.getItem("limit") < 1 && (
-            <button class="passenger-btn">
-              Person{" "}
-              {`${NumberOfPersonsLimit}  of ${localStorage.getItem(
-                "numberOfUsers"
-              )}`}
-              {/* {NumberOfPersonsLimit  {"of"} {localStorage.getItem("numberOfUsers")} } */}
-            </button>
-          )}
-        </div>
-        {peoplesData[0] && (
-          <div class="people-booking-copy-dedail-person">
-            <div className="site-container">
-              <label>
-                <input
-                  type="checkbox"
-                  onChange={(e) => setCheckBoxStatus(e.target.checked)}
-                  checked={checkboxStatus}
-                />
-                <h3>Copy contact details from person 1</h3>
-              </label>
-            </div>
-          </div>
-        )}
-      </section>
-      <section>
-        <div className="wrapper">
-          <div className="site-container mb-4">
-            <form>
-              <div class="form-row">
-                <div class="form-group col-md-12">
-                  <label for="inputEmail4">First name*</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    onChange={(e) => onChangeFormHandler(e)}
-                    name="firstName"
-                    value={firstName}
-                  />
-                </div>
-                <div class="form-group col-md-12">
-                  <label for="inputPassword4">Last name*</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    onChange={(e) => onChangeFormHandler(e)}
-                    name="lastName"
-                    value={lastName}
-                  />
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputAddress">DOB*</label>
-                <input
-                  type="date"
-                  class="form-control"
-                  onChange={(e) => onChangeFormHandler(e)}
-                  name="dob"
-                  value={dob}
-                />
-              </div>
-              <div>
-                <label for="inputAddress"> Sex*</label>
-                <div class="selectdiv">
-                  <select onChange={(e) => setSex(e.target.value)} value={sex}>
-                    <option>---Please Select your sex---</option>
-                    {sexArray.map((se) => {
-                      return <option>{se}</option>;
-                    })}
-                  </select>
-                </div>
-              </div>
-              <div>
-                <div className=" mt-3">
-                  <label for="inputAddress"> Ehitinicity*</label>
-                  <div class="selectdiv">
-                    <select
-                      onChange={(e) => setSex(e.target.value)}
-                      value={sex}
-                    >
-                      <option>---Please Select your sex---</option>
-                      {sexArray.map((se) => {
-                        return <option>{se}</option>;
-                      })}
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="form-row mt-4">
-                <div class="form-group col-md-12">
-                  <label for="inputCity">Email*</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    onChange={(e) => onChangeFormHandler(e)}
-                    name="email"
-                    value={email}
-                  />
-                </div>
-                {/* <div class="drive-gide people-email-booking">
-              <p>Your results will be Sent to you via email</p>
-            </div> */}
-                <div class="form-group col-md-12">
-                  <label for="inputCity">Confirm Email*</label>
-                  <input
-                    type="emai"
-                    class="form-control"
-                    onChange={(e) => onChangeFormHandler(e)}
-                    name="confirmEmail"
-                    value={confirmEmail}
-                  />
-                </div>
-                <div class="form-group col-md-12">
-                  <label for="inputCity">Mobile Number*</label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    onChange={(e) => onChangeFormHandler(e)}
-                    name="mobile"
-                    value={mobile}
-                  />
-                </div>
-                {/* <div class="drive-gide people-email-booking">
-              <p>Your results will be Sent to you via email</p>
-            </div> */}
-                <div class="form-group col-md-12">
-                  <label for="inputCity">Confirm Mobile Number*</label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    onChange={(e) => onChangeFormHandler(e)}
-                    name="confirmMobile"
-                    value={confirmMobile}
-                  />
-                </div>
-                <div class="form-group col-md-12">
-                  <label for="inputZip">Passport/ID card number*</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    onChange={(e) => onChangeFormHandler(e)}
-                    name="passportIdCard"
-                    value={passportIdCard}
-                  />
-                </div>
-              </div>
-              <div class="form-group Confirm-passport col-md-12 p-0">
-                <label for="inputZip">Confirm Passport/ID card number*</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  onChange={(e) => onChangeFormHandler(e)}
-                  name="confIrmpassportIdCard"
-                  value={confIrmpassportIdCard}
-                />
-              </div>
-            </form>
-          </div>
-        </div>
-        <footer>
-          <div className="site-container">
-            <div class="col-md-6 col-12 p-0 pr-0 pl-0 ml-auto mt-0 mb-2">
-              <div className="row">
-                {!editMan ? (
-                  <>
-                    {NumberOfPersonsLimit ==
-                    localStorage.getItem("numberOfUsers") ? (
-                      ""
-                    ) : (
-                      <>
-                        <div class="col-6">
-                          <button type="submit" class="Back-btn">
-                            Back
-                          </button>
-                        </div>
-                        <div class="col-6">
-                          <button
-                            type="submit"
-                            onClick={(e) => nextPersonHandler(e)}
-                            class="Next-btn"
-                          >
-                            Next Person
-                          </button>
-                        </div>
-                      </>
-                    )}
+      <Formik
+        initialValues={{
+          firstName: "",
+          lastName: "",
+          dob: "",
+          ethnicity: "",
+          email: "",
+          confirmEmail: "",
+          mobile: "",
+          confirmMobile: "",
+          passportIdCard: "",
+          confIrmpassportIdCard: "",
+          sex: "",
+          ethnicity: "",
+        }}
+        onSubmit={async (values) => {
+          console.log('object')
+        }}
+        validationSchema={Yup.object().shape({
+          email: Yup.string().email().required("Required"),
+          confirmEmail: Yup.string()
+            .oneOf([Yup.ref("email"), null], "Email don't match!")
+            .required("Required"),
+          passportIdCard: Yup.string().required("Required"),
+          confIrmpassportIdCard: Yup.string()
+            .oneOf(
+              [Yup.ref("passportIdCard"), null],
+              "Passport id don't match!"
+            )
+            .required("Required"),
+          mobile: Yup.string().required("Required"),
+          confirmMobile: Yup.string()
+            .oneOf([Yup.ref("mobile"), null], "Mobile no don't match!")
+            .required("Required"),
+          firstName: Yup.string()
+            .matches(
+              /^[A-Z][a-z0-9_-]{1,100}$/,
+              "First Letter must be Uppercase,"
+            )
+            .required("Required"),
+          lastName: Yup.string()
+            .matches(
+              /^[A-Z][a-z0-9_-]{1,100}$/,
+              "First Letter must be Uppercase,"
+            )
+            .required("Required"),
+          sex: Yup.string().required("Required"),
+          ethnicity: Yup.string().required("Required"),
+        })}
+      >
+        {(props) => {
+          const {
+            values,
+            touched,
+            errors,
+            dirty,
+            isSubmitting,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            isValid
+          } = props;
+          if(isValid){
+            setIsValidSubmitCheckout(true)
 
-                    <div class="col-12" onClick={(e) => submitCheckout(e)}>
-                      <button class="Submit-to-checkout">
-                        Submit and go to checkout
-                      </button>
-                    </div>
-                  </>
-                ) : (
-                  <div class="col-12">
-                    <button
-                      class="Submit-to-checkout"
-                      onClick={updatePersonHandler}
-                    >
-                      Update Person
+          }
+          return (
+            <>
+              <section>
+                <div class="flite-time">
+                  <h4 class="PRC-flite-heading">PCR Fit to Fly</h4>
+                  <p class="PRC-flite-dec">
+                    You are booking for 3 people <br /> 12th February 2021
+                    between 8am - 4pm
+                  </p>
+                  {localStorage.getItem("limit") < 1 && (
+                    <button class="passenger-btn">
+                      Person{" "}
+                      {`${NumberOfPersonsLimit}  of ${localStorage.getItem(
+                        "numberOfUsers"
+                      )}`}
+                      {/* {NumberOfPersonsLimit  {"of"} {localStorage.getItem("numberOfUsers")} } */}
                     </button>
+                  )}
+                </div>
+                {peoplesData[0] && (
+                  <div class="people-booking-copy-dedail-person">
+                    <div className="site-container">
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => setCheckBoxStatus(e.target.checked)}
+                          checked={checkboxStatus}
+                        />
+                        <h3>Copy contact details from person 1</h3>
+                      </label>
+                    </div>
                   </div>
                 )}
-              </div>
-            </div>
-          </div>
-        </footer>
-      </section>
+              </section>
+              <section>
+                <div className="wrapper">
+                  <div className="site-container mb-4">
+                    <form>
+                      <div class="form-row">
+                        <div class="form-group col-md-12">
+                          <label for="inputEmail4">First name*</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            name="firstName"
+                            value={values.firstName}
+                          />
+                          {errors.firstName && touched.firstName && (
+                            <div className="input-feedback">
+                              {errors.firstName}
+                            </div>
+                          )}
+                        </div>
+                        <div class="form-group col-md-12">
+                          <label for="inputPassword4">Last name*</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            name="lastName"
+                            value={values.lastName}
+                          />
+                          {errors.lastName && touched.lastName && (
+                            <div className="input-feedback">
+                              {errors.lastName}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputAddress">DOB*</label>
+                        <input
+                          type="date"
+                          class="form-control"
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          name="dob"
+                          value={values.dob}
+                        />
+                        {errors.dob && touched.dob && (
+                          <div className="input-feedback">{errors.dob}</div>
+                        )}
+                      </div>
+                      <div>
+                        <label for="inputAddress"> Sex*</label>
+                        <div class="selectdiv">
+                          <select
+                            onChange={(e) => setSex(e.target.value)}
+                            value={values.sex}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            name="sex"
+                          >
+                            <option>---Please Select your sex---</option>
+                            {sexArray.map((se) => {
+                              return <option>{se}</option>;
+                            })}
+                          </select>
+                        </div>
+                      </div>
+                      <div>
+                        <div className=" mt-3">
+                          <label for="inputAddress"> Ehitinicity*</label>
+                          <div class="selectdiv">
+                            <select
+                              onChange={(e) => setSex(e.target.value)}
+                              value={values.ethnicity}
+                              name="ethnicity"
+                              onChange={handleChange}
+                              onBlur={handleBlur}
+                            >
+                              <option>---Please Select your sex---</option>
+                              {sexArray.map((se) => {
+                                return <option>{se}</option>;
+                              })}
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-row mt-4">
+                        <div class="form-group col-md-12">
+                          <label for="inputCity">Email*</label>
+                          <input
+                            type="email"
+                            class="form-control"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            name="email"
+                            value={values.email}
+                          />
+                          {errors.email && touched.email && (
+                            <div className="input-feedback">{errors.email}</div>
+                          )}
+                        </div>
+                        {/* <div class="drive-gide people-email-booking">
+                    <p>Your results will be Sent to you via email</p>
+                  </div> */}
+                        <div class="form-group col-md-12">
+                          <label for="inputCity">Confirm Email*</label>
+                          <input
+                            type="emai"
+                            class="form-control"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.confirmEmail}
+                            name="confirmEmail"
+                          />
+                          {errors.confirmEmail && touched.confirmEmail && (
+                            <div className="input-feedback">
+                              {errors.confirmEmail}
+                            </div>
+                          )}
+                        </div>
+                        <div class="form-group col-md-12">
+                          <label for="inputCity">Mobile Number*</label>
+                          <input
+                            type="number"
+                            class="form-control"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            name="mobile"
+                            value={values.mobile}
+                          />
+                          {errors.mobile && touched.mobile && (
+                            <div className="input-feedback">
+                              {errors.mobile}
+                            </div>
+                          )}
+                        </div>
+                        {/* <div class="drive-gide people-email-booking">
+                    <p>Your results will be Sent to you via email</p>
+                  </div> */}
+                        <div class="form-group col-md-12">
+                          <label for="inputCity">Confirm Mobile Number*</label>
+                          <input
+                            type="number"
+                            class="form-control"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            name="confirmMobile"
+                            value={values.confirmMobile}
+                          />
+                          {errors.confirmMobile && touched.confirmMobile && (
+                            <div className="input-feedback">
+                              {errors.confirmMobile}
+                            </div>
+                          )}
+                        </div>
+                        <div class="form-group col-md-12">
+                          <label for="inputZip">Passport/ID card number*</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            name="passportIdCard"
+                            value={values.passportIdCard}
+                          />
+                          {errors.passportIdCard && touched.passportIdCard && (
+                            <div className="input-feedback">
+                              {errors.passportIdCard}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      <div class="form-group Confirm-passport col-md-12 p-0">
+                        <label for="inputZip">
+                          Confirm Passport/ID card number*
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          name="confIrmpassportIdCard"
+                          value={values.confIrmpassportIdCard}
+                        />
+                        {errors.confIrmpassportIdCard &&
+                          touched.confIrmpassportIdCard && (
+                            <div className="input-feedback">
+                              {errors.confIrmpassportIdCard}
+                            </div>
+                          )}
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <footer>
+                  <div className="site-container">
+                    <div class="col-md-6 col-12 p-0 pr-0 pl-0 ml-auto mt-0 mb-2">
+                      <div className="row">
+                        {!editMan ? (
+                          <>
+                            {NumberOfPersonsLimit ==
+                            localStorage.getItem("numberOfUsers") ? (
+                              ""
+                            ) : (
+                              <>
+                                <div class="col-6">
+                                  <button type="submit" class="Back-btn">
+                                    Back
+                                  </button>
+                                </div>
+                                <div class="col-6">
+                                  <button
+                                    type="submit"
+                                    onClick={handleSubmit}
+                                    class="Next-btn"
+                                  >
+                                    Next Person
+                                  </button>
+                                </div>
+                              </>
+                            )}
+
+                            <div
+                              class="col-12"
+                              onClick={() => {
+                                handleSubmit();
+                              }}
+                            >
+                              <button class="Submit-to-checkout">
+                                Submit and go to checkout
+                              </button>
+                            </div>
+                          </>
+                        ) : (
+                          <div class="col-12">
+                            <button
+                              class="Submit-to-checkout"
+                              onClick={updatePersonHandler}
+                            >
+                              Update Person
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+              </section>
+            </>
+          );
+        }}
+      </Formik>
     </div>
   );
 };
