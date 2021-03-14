@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { errorNotification } from "../utils/notification";
-import { peopleBookingAction,updatePersonAction } from "../actions/form";
+import { peopleBookingAction, updatePersonAction } from "../actions/form";
 
 const PeopleBooking = ({ history }) => {
   const [formData, setFormData] = useState({
@@ -30,6 +30,7 @@ const PeopleBooking = ({ history }) => {
     passportIdCard,
     confIrmpassportIdCard,
   } = formData;
+  console.log("🚀 ~ file: PeopleBooking.js ~ line 33 ~ PeopleBooking ~ formData", formData)
 
   const dispatch = useDispatch();
   const [sex, setSex] = useState("");
@@ -78,7 +79,7 @@ const PeopleBooking = ({ history }) => {
         passportIdCard,
         confIrmpassportIdCard,
         sex,
-        Person: peoplesData.length + 1,
+        Person: firstName,
       };
 
       dispatch(peopleBookingAction(data));
@@ -156,7 +157,7 @@ const PeopleBooking = ({ history }) => {
         passportIdCard,
         confIrmpassportIdCard,
         sex,
-        Person: NumberOfPersonsLimit,
+        Person: firstName,
         id: Math.floor(100000 + Math.random() * 900000),
       };
       dispatch(peopleBookingAction(data));
@@ -218,10 +219,8 @@ const PeopleBooking = ({ history }) => {
     }
   };
 
-
-
- const updatePersonHandler = () => {
-   console.log('object')
+  const updatePersonHandler = () => {
+    console.log("object");
     if (email) {
       var validator = require("validator");
       console.log(validator.isEmail(email), "email validation");
@@ -259,12 +258,10 @@ const PeopleBooking = ({ history }) => {
         id: editMan.id,
       };
       dispatch(updatePersonAction(data));
-      history.push('/appointmentsummary')
+      history.push("/appointmentsummary");
       // let peoplesData = []
       // peoplesData.unshift(data)
       // localStorage.setItem('peoples' , JSON.stringify(peoplesData) )
-
-     
     } else {
       if (!firstName || !lastName || !dob || !sex) {
         errorNotification("Fill Required Fields");
@@ -532,8 +529,13 @@ const PeopleBooking = ({ history }) => {
                     </div>
                   </>
                 ) : (
-                  <div class="col-12"  >
-                    <button class="Submit-to-checkout" onClick={updatePersonHandler}>Update Person</button>
+                  <div class="col-12">
+                    <button
+                      class="Submit-to-checkout"
+                      onClick={updatePersonHandler}
+                    >
+                      Update Person
+                    </button>
                   </div>
                 )}
               </div>
