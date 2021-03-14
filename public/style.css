@@ -26,7 +26,10 @@ footer{
     background-color: white;
     color: white;
     text-align: center;
-    padding: 20px 0px;
+    padding: 10px 0px;
+}
+footer .site-container{
+    margin: 0px auto;
 }
 .wrapper{
     margin-bottom: 100px;
@@ -37,7 +40,15 @@ button:active{
 .row{
     align-items: baseline;
 }
+.toggles-bars{
+    left: 34px;
+}
+.toggles-bars i{
+    color: white;
+    font-size: 28px;
+}
 header{
+    margin-bottom: 9px;
     position: sticky;
     z-index: 9;
     top: 0px;
@@ -195,6 +206,7 @@ body .white-logo{
     font-family: "Poppins-Bold";
     text-decoration: underline;
     text-align: center;
+    margin: 10px 0px 20px 0px;
 }
 .travelling-tickets-heading{
     color:#1E9190;
@@ -208,7 +220,7 @@ body .white-logo{
 }
 .travelling-tickets-wrapper .travelling-tickets-heading{
     text-align: left;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 .travelling-tickets-wrapper{
     padding: 22px 0px;
@@ -228,11 +240,14 @@ body .white-logo{
     text-align: right;
 }
 .tickets-button{
-    border: 1px solid white;
-    background-color: #1E9190;
+    font-family: "Poppins-Regular";
+    font-size: 14px;
+    border: 2px solid white;
+    background-image: linear-gradient(90deg, #0491A5, #8DCCBE);
     color: white;
-    padding: 7px 30px;
+    padding: 5px 0px;
     border-radius: 6px;
+    width: 100%;
 }
 .tickets-amount{
     font-family: "Poppins-Bold";
@@ -243,7 +258,7 @@ body .white-logo{
     padding-top: 23px;
 }
 .travelling-tickets-content{
-    margin: 21px 0px 5px 0px;
+    margin: 0px 0px 5px 0px;
 }
 .travelling-tickets-services{
     font-family: "Poppins-Light";
@@ -267,6 +282,7 @@ body .white-logo{
 }
 .travelling-tickets-footer-content{
     text-align: center;
+    margin-bottom: 80px;
 }
 .travelling-tickets-footer-content-heading{
     font-size: 16px;
@@ -278,6 +294,7 @@ body .white-logo{
     font-size: 10px;
     color: black;
     font-family: "Poppins-Regular";
+    text-align: center;
 }
 /* INDEX PAGE */
 /* user-detail */
@@ -374,7 +391,8 @@ body form select{
     font-size: 14px;
 }
 .Find-Address-btn .tickets-button{
-    padding: 7px 12px;
+    padding: 9px 12px;
+    margin: 0px !important;
 }
 .appointment-user-address-row .Find-Address-btn {
     padding-left: 0px ;
@@ -487,6 +505,7 @@ body .people-email-booking{
     font-family: "Poppins-Regular";
     font-size: 14px;
     color: black;
+    margin-right: 5px;
 }
 .Location-amount{
     color: black;
@@ -618,6 +637,7 @@ body #staticBackdrop{
 .Terms-Conditions-points p i{
     color: #1E9190;
     margin-right: 5px;
+    font-size: 15px;
 }
 .Terms-Conditions-points p{
     font-size: 16px;
@@ -697,7 +717,7 @@ body #staticBackdrop{
 .mini-heading p{
     font-family: "Poppins-Bold";
     font-size: 16px;  
-    text-align: left;
+    text-align: center;
 }
 .person-heading{
     font-family: "Poppins-Bold";
@@ -961,12 +981,18 @@ body #staticBackdrop{
 /* Booking Complete */
 
 @media screen and (max-width:768px){
+    .breaking-news-box {
+        background-color: #1E9190;
+        padding: 26px 25px;
+        margin: 5px 0px;
+        text-align: center;
+    }
    body  .Confirm-passport{
         padding: 0px;
     }
     .site-container{
-        width: 95%;
-        margin: 0 auto;
+        width: 90%;
+        margin: 20px auto;
     }
     .flight-time-footer-buttons{
         margin: 0 auto;
@@ -983,8 +1009,8 @@ body #staticBackdrop{
     .travelling-tickets{
         background-color: #e7f3f4;
         border-radius: 12px;
-        padding: 25px 10px;
-        margin: 25px auto;
+        padding: 25px 25px;
+        margin: 10px auto;
         width: 100%;
     }
     .travelling-tickets-hightlight-text {
@@ -993,6 +1019,14 @@ body #staticBackdrop{
         font-family: "Poppins-Bold";
         text-decoration: underline;
         margin: 0px 7px;
+    }
+    .travelling-tickets-mainheading{
+        color:#1E9190;
+        font-size: 20px;
+        font-family: "Poppins-Bold";
+        text-decoration: underline;
+        text-align: center;
+        margin: 10px 0px 20px 0px;
     }
 }
 @media screen and (max-width:375px){

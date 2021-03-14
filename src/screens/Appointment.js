@@ -86,7 +86,7 @@ const Appointment = ({ history }) => {
             Please Select which address you would like to have appointed
           </p>
           <div class="appointment-user-address-row row">
-            <div class="form-group col-md-5 col-7">
+            <div class="form-group col-md-7 col-8">
               <input
                 type="text"
                 class="form-control"
@@ -96,7 +96,7 @@ const Appointment = ({ history }) => {
                 value={postcode.toUpperCase()}
               />
             </div>
-            <div class="form-group col-md-7 col-5 Find-Address-btn">
+            <div class="form-group col-md-4 col-4 Find-Address-btn">
               <button
                 class="tickets-button"
                 onClick={(e) => findAddressHandler(e)}

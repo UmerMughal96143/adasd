@@ -54,7 +54,7 @@ const AppointmentSummary = ({ history }) => {
         <section>
           <div class="Payment-Details-wrapper">
             <div class="mini-heading">
-              <p>Please check your appointment derails carefully below</p>
+              <p>Please check your appointment <br /> derails carefully below</p>
             </div>
             <div class="appointment-derails-wrapper">
               {peoplesData.map((data) => {
@@ -172,9 +172,9 @@ const AppointmentSummary = ({ history }) => {
       </section>
       </div>
       <footer>
-        <div className="site-container form_buttons flight-time-footer-buttons">
-          <div class="Appointment-modle-footer col-md-6 col-12 ml-auto">
-            <div className="row">
+        <div className="site-container form_buttons">
+          <div class="Appointment-modle-footer col-md-6 col-12 ml-auto pl-0 pr-0">
+            <div className="row flight-time-footer-buttons ml-0">
               <div class="accept-turm-condition col-md-8 col-12 footer-btn pl-0">
                 <button
                   type="button"

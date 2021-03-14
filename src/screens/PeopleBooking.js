@@ -323,12 +323,12 @@ const PeopleBooking = ({ history }) => {
   }, [editMan]);
 
   return (
-    <div class="container-fluid mb-4">
+    <div class="container-fluid mb-4 p-0">
       <section>
         <div class="flite-time">
           <h4 class="PRC-flite-heading">PCR Fit to Fly</h4>
           <p class="PRC-flite-dec">
-            You are booking for 3 people 12th February 2021 between 8am - 4pm
+            You are booking for 3 people <br /> 12th February 2021 between 8am - 4pm
           </p>
           {localStorage.getItem("limit") < 1 && (
             <button class="passenger-btn">
@@ -491,7 +491,7 @@ const PeopleBooking = ({ history }) => {
         </div>
         <footer>
           <div className="site-container">
-            <div class="col-md-6 col-12 p-0 form_buttons user-detail-footer-btns ml-auto mt-0 mb-2">
+            <div class="col-md-6 col-12 p-0 pr-0 pl-0 ml-auto mt-0 mb-2">
               <div className="row">
                 {!editMan ? (
                   <>
