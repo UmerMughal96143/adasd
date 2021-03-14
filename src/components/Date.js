@@ -18,7 +18,6 @@ function Date() {
     inputStyle: "outline",
     placeholder: "Please Select...",
   };
-
   return (
     <Page>
       <Datepicker display="anchored" touchUi={true} />
@@ -27,4 +26,5 @@ function Date() {
   );
 }
 
-export default Date;
+
+export default Date
