@@ -28,10 +28,6 @@ const AppointmentSummary = ({ history }) => {
   }
 
   const personRemoveHandler = (id) => {
-    console.log(
-      "🚀 ~ file: AppointmentSummary.js ~ line 30 ~ personRemoveHandler ~ id",
-      id
-    );
     dispatch(removePersons(id));
   };
 

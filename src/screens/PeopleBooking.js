@@ -30,7 +30,6 @@ const PeopleBooking = ({ history }) => {
     passportIdCard,
     confIrmpassportIdCard,
   } = formData;
-  console.log("🚀 ~ file: PeopleBooking.js ~ line 33 ~ PeopleBooking ~ formData", formData)
 
   const dispatch = useDispatch();
   const [sex, setSex] = useState("");
@@ -48,7 +47,6 @@ const PeopleBooking = ({ history }) => {
     e.preventDefault();
     if (email) {
       var validator = require("validator");
-      console.log(validator.isEmail(email), "email validation");
       if (!validator.isEmail(email)) {
         errorNotification("Enter Valid Email");
         return;
@@ -126,7 +124,6 @@ const PeopleBooking = ({ history }) => {
     e.preventDefault();
     if (email) {
       var validator = require("validator");
-      console.log(validator.isEmail(email), "email validation");
       if (!validator.isEmail(email)) {
         errorNotification("Enter Valid Email");
         return;
@@ -220,10 +217,8 @@ const PeopleBooking = ({ history }) => {
   };
 
   const updatePersonHandler = () => {
-    console.log("object");
     if (email) {
       var validator = require("validator");
-      console.log(validator.isEmail(email), "email validation");
       if (!validator.isEmail(email)) {
         errorNotification("Enter Valid Email");
         return;

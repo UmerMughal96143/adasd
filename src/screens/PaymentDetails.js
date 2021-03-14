@@ -12,14 +12,7 @@ const PaymentDetails = ({ history }) => {
     cardHolderName: "",
     cvv: "",
   });
-  console.log(
-    "🚀 ~ file: PaymentDetails.js ~ line 10 ~ PaymentDetails ~ data",
-    data
-  );
-  console.log(
-    "🚀 ~ file: PaymentDetails.js ~ line 10 ~ PaymentDetails ~ peoplesData",
-    peoplesData
-  );
+
 
   const { cardNumber, expiryDate, cardHolderName, cvv } = formData;
 

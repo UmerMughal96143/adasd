@@ -10,15 +10,9 @@ import Date from "../components/Date";
 
 const Suggestions = ({ history }) => {
   const [flightTime, setFlightTime] = useState("");
-  console.log(
-    "🚀 ~ file: Suggestions.js ~ line 12 ~ Suggestions ~ flightTime",
-    flightTime
-  );
+ 
   const [startDate, setStartDate] = useState("");
-  console.log(
-    "🚀 ~ file: Suggestions.js ~ line 18 ~ Suggestions ~ startDate",
-    startDate
-  );
+  
   const dispatch = useDispatch();
 
   let flightTimes = [

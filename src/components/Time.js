@@ -9,7 +9,6 @@ setOptions({
 
 function Time({valueFromPicker}) {
     const [time , setTime] = useState('')
-    console.log("🚀 ~ file: Date.js ~ line 12 ~ Date ~ time", time)
     const [date , setDate] = useState('')
   const inputProps = {
     placeholder: "Please Select...",
