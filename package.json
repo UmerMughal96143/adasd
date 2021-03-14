@@ -2,6 +2,11 @@
   "name": "news_admin_react",
   "version": "0.1.0",
   "private": true,
+  "file-saver": {
+    "version": "1.3.8",
+    "resolved": "https://registry.npmjs.org/file-saver/-/file-saver-1.3.8.tgz",
+    "integrity": "sha512-spKHSBQIxxS81N/O21WmuXA2F6wppUCsutpzenOeZzOCCJ5gEfcbqJP983IrpLXzYmXnMUa6J03SubcNPdKrlg=="
+  },
   "dependencies": {
     "@mobiscroll/react": "https://npm.mobiscroll.com/@mobiscroll/react-trial/-/react-trial-5.1.1.tgz",
     "@testing-library/jest-dom": "^5.11.4",
