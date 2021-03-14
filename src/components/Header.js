@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header>
-      <nav class="main-navbar navbar navbar-expand-lg navbar-light">
+      <nav class="main-navbar navbar navbar-expand-lg navbar-light position-relative">
+        <div className="toggles-bars position-absolute">
+          <i class="fas fa-bars"></i>
+        </div>
         {/* <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button> --> */}
