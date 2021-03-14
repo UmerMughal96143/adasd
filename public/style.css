@@ -189,6 +189,13 @@ body .white-logo{
     font-size: 14px;
     font-family: "Poppins-Medium";
 }
+.travelling-tickets-mainheading{
+    color:#1E9190;
+    font-size: 28px;
+    font-family: "Poppins-Bold";
+    text-decoration: underline;
+    text-align: center;
+}
 .travelling-tickets-heading{
     color:#1E9190;
     font-size: 18px;

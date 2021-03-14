@@ -23,7 +23,7 @@ const Landing = () => {
       <div class="container mb-4">
         <section>
           <div class="travelling-tickets-wrapper">
-            <h3 class="travelling-tickets-heading">What test do I need?</h3>
+            <h3 class="travelling-tickets-mainheading">What test do I need?</h3>
             <div class="container__">
               <div class="row">
                 <div class="col-lg-4 col-md-6 col-12">
