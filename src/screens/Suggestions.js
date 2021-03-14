@@ -14,8 +14,11 @@ const Suggestions = ({ history }) => {
     "🚀 ~ file: Suggestions.js ~ line 12 ~ Suggestions ~ flightTime",
     flightTime
   );
-  const [startDate, setStartDate] = useState('');
-  console.log("🚀 ~ file: Suggestions.js ~ line 18 ~ Suggestions ~ startDate", startDate)
+  const [startDate, setStartDate] = useState("");
+  console.log(
+    "🚀 ~ file: Suggestions.js ~ line 18 ~ Suggestions ~ startDate",
+    startDate
+  );
   const dispatch = useDispatch();
 
   let flightTimes = [
@@ -79,7 +82,7 @@ const Suggestions = ({ history }) => {
                     onFocus={() => console.log("ha")}
                   />
                 </div> */}
-                <Date datValueFromPicker={datValueFromPicker}/>
+                <Date datValueFromPicker={datValueFromPicker} />
               </div>
               {/* <div>
             <p class="appointment-form-heading appointment-date-div">
