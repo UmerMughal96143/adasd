@@ -53,6 +53,18 @@ header{
     z-index: 9;
     top: 0px;
 }
+header .main-navbar {
+    padding: 0;
+}
+.burger-line {
+    display: block;
+    border: solid 1px #fff;
+    width: 28px;
+    margin: 4px 0;
+    border-radius: 20px;
+    height: 4px;
+    background: #fff;
+}
 .site-container{
     max-width: 666px;
     margin: 0 auto;
@@ -160,17 +172,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .main-navbar button{
     margin-top: -15px;
 }
-.main-logo img{
+/* .main-logo img{
     height: 100px;
-}
+} */
 body .main-logo{
-    margin: 0px auto;
-    width: 80%;
-    text-align: center;
-}
-body .white-logo{
-    margin: -15px auto;
-    width: 80%;
+    margin: 0 auto;
+    width: 41%;
     text-align: center;
 }
 .header-white{
@@ -186,12 +193,12 @@ body .white-logo{
 }
 .breaking-news{
     font-family: "Poppins-Bold";
-    font-size: 24px;
+    font-size: 22px;
     color: #ffffff;
 }
 .breaking-news-dec{
     color: white;
-    font-size: 14px;
+    font-size: 12px;
     margin-bottom: 0px;
     font-family: "Poppins-Medium";
 }
@@ -210,7 +217,7 @@ body .white-logo{
 }
 .travelling-tickets-heading{
     color:#1E9190;
-    font-size: 18px;
+    font-size: 15px;
     font-family: "Poppins-Bold";
     text-decoration: underline;
     text-align: left;
@@ -223,7 +230,7 @@ body .white-logo{
     margin-bottom: 20px;
 }
 .travelling-tickets-wrapper{
-    padding: 22px 0px;
+    padding: 22px 13px;
 }
 .travelling-tickets{
     background-color: #e7f3f4;
@@ -258,6 +265,7 @@ body .white-logo{
     padding-top: 23px;
 }
 .travelling-tickets-content{
+    align-items: flex-end;
     margin: 0px 0px 5px 0px;
 }
 .travelling-tickets-services{
@@ -1009,13 +1017,13 @@ body #staticBackdrop{
     .travelling-tickets{
         background-color: #e7f3f4;
         border-radius: 12px;
-        padding: 25px 25px;
-        margin: 10px auto;
+        padding: 19px 23px;
         width: 100%;
+        margin: 0 0 20px;
     }
     .travelling-tickets-hightlight-text {
         color: #1E9190;
-        font-size: 20px;
+        font-size: 16px;
         font-family: "Poppins-Bold";
         text-decoration: underline;
         margin: 0px 7px;
@@ -1026,13 +1034,22 @@ body #staticBackdrop{
         font-family: "Poppins-Bold";
         text-decoration: underline;
         text-align: center;
-        margin: 10px 0px 20px 0px;
+        margin: 8px 0px 32px 0px;
     }
 }
 @media screen and (max-width:375px){
+    .Location-block-wrapper {
+        padding: 12px 0 0;
+    }
+    .Location-box .drive-gide {
+        margin: 10px 0 0;
+    }
     .see-location-btn-div {
         width: 65%;
         margin: 0 auto;
+    }
+    .see-location-btn-div button {
+        margin-bottom: 0;
     }
     .see-location-modle {
         width: 60%;

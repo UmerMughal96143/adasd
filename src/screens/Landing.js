@@ -36,21 +36,21 @@ const Landing = () => {
                        travelling but need a test
                     </h3>
                     <div class="d-flex travelling-tickets-content">
-                      <div class="col-9 travelling-tickets-box-right pl-0 pr-0">
+                      <div class="col-8 travelling-tickets-box-right pl-0 pr-0">
                         <p class="travelling-tickets-services">PCR Test</p>
                         <p class="travelling-tickets-confirmation-email">
                           (e-mail results confirmation)
                         </p>
                       </div>
-                      <div class="col-3 travelling-tickets-box-left pr-0 pl-0">
+                      <div class="col-4 travelling-tickets-box-left pr-0 pl-0">
                         <div class="row m-0">
                           <div className="col-12 p-0 text-left">
-                             <div className="d-flex">
+                             <div className="d-flex justify-content-center">
                              <span>From</span> 
-                             <h3 class="tickets-amount ml-1">£66</h3>
+                             <h3 class="tickets-amount ml-1 mb-0">£66</h3>
                              </div>
                           </div>
-                          <div className="col-12 p-0">
+                          <div className="col-9 p-0 ml-auto">
                           <Link to="/testlocation" onClick={() => dispatch(bookCovidTest('I am travelling but need a test'))}>
                           <button class="tickets-button" >Book</button>
                         </Link>
@@ -70,23 +70,23 @@ const Landing = () => {
                       of the UK
                     </h3>
                     <div class="d-flex travelling-tickets-content">
-                      <div class="col-9 travelling-tickets-box-right pr-0 pl-0">
+                      <div class="col-8 travelling-tickets-box-right pr-0 pl-0">
                         <p class="travelling-tickets-services">PCR test</p>
                         <p class="travelling-tickets-confirmation-email">
                           (e-mail results confirmation)<br />
                           +Fit to Fly certificate
                         </p>
                       </div>
-                      <div class="col-3 travelling-tickets-box-left pr-0 pl-0">
+                      <div class="col-4 travelling-tickets-box-left pr-0 pl-0">
                       <div class="row m-0">
                           <div className="col-12 p-0">
-                             <div className="d-flex">
+                             <div className="d-flex justify-content-center">
                                 <span>From</span> 
-                                <h3 class="tickets-amount ml-1">£66</h3>
+                                <h3 class="tickets-amount ml-1 mb-0">£66</h3>
                              </div>
                           </div>
                         </div>
-                        <div className="col-12 p-0">
+                        <div className="col-9 p-0 ml-auto">
                         <Link to="/testlocation"  onClick={() => dispatch(bookCovidTest('I am travelling out of the UK'))}>
                           <button class="tickets-button">Book</button>
                         </Link>
@@ -105,22 +105,22 @@ const Landing = () => {
                       in England
                     </h3>
                     <div class="d-flex travelling-tickets-content">
-                      <div class="col-9 travelling-tickets-box-right pr-0 pl-0">
+                      <div class="col-8 travelling-tickets-box-right pr-0 pl-0">
                         <p class="travelling-tickets-services">PCR Test</p>
                         <p class="travelling-tickets-confirmation-email">
                           (e-mail results confirmation)
                         </p>
                       </div>
-                      <div class="col-3 travelling-tickets-box-left pr-0 pl-0">
+                      <div class="col-4 travelling-tickets-box-left pr-0 pl-0">
                       <div class="row m-0">
                           <div className="col-12 p-0 text-left">
-                              <div className="d-flex">
+                              <div className="d-flex justify-content-center">
                                 <span>From</span> 
-                                <h3 class="tickets-amount ml-1">£66</h3>
+                                <h3 class="tickets-amount ml-1 mb-0">£66</h3>
                               </div>
                           </div>
                         </div>
-                        <div className="col-12 p-0">
+                        <div className="col-9 p-0 ml-auto">
                         <Link to="/testlocation" onClick={() => dispatch(bookCovidTest('I am arriving in England'))}>
                           <button class="tickets-button">Book</button>
                         </Link>
