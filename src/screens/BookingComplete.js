@@ -13,6 +13,7 @@ const BookingCOmplete = () => {
   }, []);
   return (
     <div>
+       
       <section class="Appointment-Summary">
         <div class="Test-Location-box">
           <h3>Booking Complete</h3>

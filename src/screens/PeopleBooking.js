@@ -3,14 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { errorNotification } from "../utils/notification";
 import { peopleBookingAction, updatePersonAction } from "../actions/form";
-import { Formik } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
-const PeopleBooking = ({ history }) => {
-  const [isValidSubmitCheckout , setIsValidSubmitCheckout] = useState(false)
-  console.log("🚀 ~ file: PeopleBooking.js ~ line 11 ~ PeopleBooking ~ isValidSubmitCheckout", isValidSubmitCheckout)
-  const [isValidNextPerson , setIsValidNextPerson] = useState(false)
-  console.log("🚀 ~ file: PeopleBooking.js ~ line 12 ~ PeopleBooking ~ isValidNextPerson", isValidNextPerson)
+const PeopleBooking = (props) => {
+  const [isValidSubmitCheckout, setIsValidSubmitCheckout] = useState(false);
+  const [isValidNextPerson, setIsValidNextPerson] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -49,81 +47,11 @@ const PeopleBooking = ({ history }) => {
 
   let sexArray = ["Male", "Female"];
 
-  const submitCheckout = (e) => {
-    e.preventDefault();
-    if (email) {
-      var validator = require("validator");
-      if (!validator.isEmail(email)) {
-        errorNotification("Enter Valid Email");
-        return;
-      }
-    }
-    if (
-      firstName &&
-      lastName &&
-      dob &&
-      sex &&
-      email &&
-      confirmEmail &&
-      mobile &&
-      confirmMobile &&
-      passportIdCard &&
-      confIrmpassportIdCard &&
-      sex
-    ) {
-      let data = {
-        firstName,
-        lastName,
-        dob,
-        sex,
-        email,
-        confirmEmail,
-        mobile,
-        confirmMobile,
-        passportIdCard,
-        confIrmpassportIdCard,
-        sex,
-        Person: firstName,
-      };
-
-      dispatch(peopleBookingAction(data));
-      setNumberOfPersonsLimit(NumberOfPersonsLimit + 1);
-      localStorage.setItem("limit", NumberOfPersonsLimit);
-      history.push("/termsconditions");
-    } else {
-      if (!firstName || !lastName || !dob || !sex) {
-        errorNotification("Fill Required Fields");
-        return;
-      }
-      if (sex == "---Please Select your sex---") {
-        errorNotification("Select Sex");
-        return;
-      }
-      if (!email) {
-        errorNotification("Enter Email");
-        return;
-      }
-      if (email !== confirmEmail) {
-        errorNotification("Email does not match");
-        return;
-      }
-      if (!mobile) {
-        errorNotification("Enter Mobile Number");
-        return;
-      }
-      if (mobile !== confirmMobile) {
-        errorNotification("Mobile does not match");
-        return;
-      }
-      if (!passportIdCard) {
-        errorNotification("Enter Id Number");
-        return;
-      }
-      if (passportIdCard !== confIrmpassportIdCard) {
-        errorNotification("Id number does not match");
-        return;
-      }
-    }
+  const submitCheckout = (values, resetForm) => {
+    values.Person = values.firstName;
+    dispatch(peopleBookingAction(values));
+    // resetForm()
+    props.history.push("/termsconditions");
   };
 
   const nextPersonHandler = (e) => {
@@ -259,7 +187,7 @@ const PeopleBooking = ({ history }) => {
         id: editMan.id,
       };
       dispatch(updatePersonAction(data));
-      history.push("/appointmentsummary");
+      props.history.push("/appointmentsummary");
       // let peoplesData = []
       // peoplesData.unshift(data)
       // localStorage.setItem('peoples' , JSON.stringify(peoplesData) )
@@ -329,16 +257,16 @@ const PeopleBooking = ({ history }) => {
   }, [editMan]);
 
   useEffect(() => {
-    if(isValidSubmitCheckout){
-      console.log('Submit To Checkout ')
+    if (isValidSubmitCheckout) {
+      console.log("Submit To Checkout ");
     }
-  }, [isValidSubmitCheckout])
+  }, [isValidSubmitCheckout]);
 
   useEffect(() => {
-    if(isValidNextPerson){
-      console.log('NextPerson ')
+    if (isValidNextPerson) {
+      console.log("NextPerson ");
     }
-  }, [isValidNextPerson])
+  }, [isValidNextPerson]);
 
   return (
     <div class="container-fluid mb-4 p-0">
@@ -348,17 +276,26 @@ const PeopleBooking = ({ history }) => {
           lastName: "",
           dob: "",
           ethnicity: "",
-          email: "",
+          email: editMan?.email ? editMan.email : "",
           confirmEmail: "",
-          mobile: "",
+          mobile: editMan?.mobile ? editMan.mobile : "",
           confirmMobile: "",
           passportIdCard: "",
           confIrmpassportIdCard: "",
           sex: "",
           ethnicity: "",
         }}
-        onSubmit={async (values) => {
-          console.log('object')
+        onSubmit={async (values, { resetForm }) => {
+          if(localStorage.getItem('submitType') == 'nextPerson'){
+            console.log('next Person')
+          }
+          if(localStorage.getItem('submitType') == 'proceedToCheckout'){
+            console.log('proceedToCheckout')
+          }
+
+          // submitCheckout(values);
+
+          // console.log("object1");
         }}
         validationSchema={Yup.object().shape({
           email: Yup.string().email().required("Required"),
@@ -402,14 +339,17 @@ const PeopleBooking = ({ history }) => {
             handleChange,
             handleBlur,
             handleSubmit,
-            isValid
+            isValid,
           } = props;
-          if(isValid){
-            setIsValidSubmitCheckout(true)
-
+          console.log(
+            "🚀 ~ file: PeopleBooking.js ~ line 410 ~ PeopleBooking ~ values",
+            values
+          );
+          if (isValid) {
+            setIsValidSubmitCheckout(true);
           }
           return (
-            <>
+            <Form>
               <section>
                 <div class="flite-time">
                   <h4 class="PRC-flite-heading">PCR Fit to Fly</h4>
@@ -657,7 +597,13 @@ const PeopleBooking = ({ history }) => {
                                 <div class="col-6">
                                   <button
                                     type="submit"
-                                    onClick={handleSubmit}
+                                    onClick={() => {
+                                      handleSubmit();
+                                      localStorage.setItem(
+                                        "submitType",
+                                        "nextPerson"
+                                      );
+                                    }}
                                     class="Next-btn"
                                   >
                                     Next Person
@@ -666,13 +612,18 @@ const PeopleBooking = ({ history }) => {
                               </>
                             )}
 
-                            <div
-                              class="col-12"
-                              onClick={() => {
-                                handleSubmit();
-                              }}
-                            >
-                              <button class="Submit-to-checkout">
+                            <div class="col-12">
+                              <button
+                                class="Submit-to-checkout"
+                                type="submit"
+                                onClick={(e) => {
+                                  handleSubmit();
+                                  localStorage.setItem(
+                                    "submitType",
+                                    "proceedToCheckout"
+                                  );
+                                }}
+                              >
                                 Submit and go to checkout
                               </button>
                             </div>
@@ -681,7 +632,13 @@ const PeopleBooking = ({ history }) => {
                           <div class="col-12">
                             <button
                               class="Submit-to-checkout"
-                              onClick={updatePersonHandler}
+                              onClick={() => {
+                                updatePersonHandler();
+                                localStorage.setItem(
+                                  "submitType",
+                                  "updatePerson"
+                                );
+                              }}
                             >
                               Update Person
                             </button>
@@ -692,7 +649,7 @@ const PeopleBooking = ({ history }) => {
                   </div>
                 </footer>
               </section>
-            </>
+            </Form>
           );
         }}
       </Formik>
