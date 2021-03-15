@@ -32,7 +32,9 @@
     "redux-thunk": "^2.3.0",
     "validator": "^13.5.2",
     "web-vitals": "^0.2.4",
-    "yup": "^0.32.9"
+    "yup": "^0.32.9",
+    "jspdf": "^2.3.1",
+    "react-to-pdf": "0.0.13"
   },
   "scripts": {
     "start": "react-scripts start",
