@@ -291,9 +291,9 @@ const PeopleBooking = (props) => {
           }
           if(localStorage.getItem('submitType') == 'proceedToCheckout'){
             console.log('proceedToCheckout')
+            submitCheckout(values);
           }
 
-          // submitCheckout(values);
 
           // console.log("object1");
         }}
